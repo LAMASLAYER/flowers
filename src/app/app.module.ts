@@ -19,18 +19,21 @@ import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as  Cloudinary from 'cloudinary-core';
 import { FileUploadModule} from 'ng2-file-upload';
 import { MaterialDashboardComponent } from './components/material-dashboard/material-dashboard.component';
+import { UploaderComponent } from './components/uploader/uploader.component';
 
 
 const routes: Routes = [
   {
     path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: MaterialDashboardComponent }
+  { path: 'dashboard', component: MaterialDashboardComponent },
+  { path: 'uploader', component: UploaderComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MaterialDashboardComponent
+    MaterialDashboardComponent,
+    UploaderComponent
   ],
   imports: [
     BrowserModule,
