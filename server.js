@@ -3,10 +3,10 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static(__dirname + '/dist/geometre-peters'));
+app.use(express.static(__dirname + '/dist/fleurslesale'));
 
 app.get('*', function (req,res) {
-  res.sendFile(path.join(__dirname + '/dist/geometre-peters/index.html'))
+  res.sendFile(path.join(__dirname + '/dist/fleurslesale/index.html'))
 
 });
 
