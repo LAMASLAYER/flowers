@@ -1,0 +1,18 @@
+
+<div class="grid-container" style="margin: 0">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.type =='BANNER'" style="cursor: default; margin-top: 50px">
+            <p class="mat-h1" style="font-family: 'Century Gothic'; font-size: xx-large">SARAH LESALE</p>
+            <p class="mat-h3" style="font-family: 'Century Gothic'">Créatrice Florale</p>
+          </div>
+          <div class="text" [style.marginTop.px]="card.margin" [style.fontSize]="card.fontSize" style="font-family: 'Century Gothic'; color:white; text-align: center">
+            <p [style.width.px]="card.width" style="margin: auto">{{ card.title }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

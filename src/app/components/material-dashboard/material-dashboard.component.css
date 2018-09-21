@@ -1,0 +1,41 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  transition: all .5s;
+  opacity: 1;
+
+}
+
+.dashboard-card:hover {
+  transition: all .5s;
+  position:absolute;
+  border-radius:30px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.dashboard-card:hover > mat-card-content > .text > p {
+  transition: all .5s;
+  -webkit-transform: scale(1.2);
+
+}
+
+.dashboard-card > mat-card-content > .text > p {
+  transition: all .5s;
+  background-color: rgba(0,0,0,0.5);
+}
