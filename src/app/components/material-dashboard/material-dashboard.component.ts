@@ -14,9 +14,9 @@ export class MaterialDashboardComponent {
       if (matches) {
         return [
           { type: 'BANNER', cols: 2, rows: 1, url: '../../../assets/IMG_0080.JPG' },
-          { title: 'MES SERVICES', cols: 2, rows: 1, url: '../../../assets/IMG_0121.JPG', fontSize: 'xx-large', margin: 120, width: 200   },
+          { title: 'MES SERVICES', cols: 2, rows: 1, url: '../../../assets/IMG_0121.JPG', fontSize: 'xx-large', margin: 120, width: 200 },
           { title: 'CRÉATIONS', cols: 1, rows: 1,  url: '../../../assets/IMG_0116.JPG', fontSize: 'medium', margin: 120, width: 90  },
-          { title: 'A PROPOS DE MOI', cols: 1, rows: 1, url: '../../../assets/IMG_0084.JPG', fontSize: 'medium', margin: 120, width: 90   }
+          { title: 'A PROPOS DE MOI', cols: 1, rows: 1, url: '../../../assets/IMG_0084.JPG', fontSize: 'medium', margin: 120, width: 90 }
         ];
       }
 
