@@ -12,7 +12,7 @@ export class UploaderComponent implements OnInit {
   @Input()
   responses: Array<any>;
 
-  private hasBaseDropZoneOver = false;
+  public hasBaseDropZoneOver = false;
   public uploader: FileUploader;
   private title: string;
   public urls: Array<string>;
