@@ -19,7 +19,6 @@ import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as  Cloudinary from 'cloudinary-core';
 import { FileUploadModule} from 'ng2-file-upload';
 import { MaterialDashboardComponent } from './components/material-dashboard/material-dashboard.component';
-import { UploaderComponent } from './components/uploader/uploader.component';
 import { AboutComponent } from './components/about/about.component';
 import { ServicesComponent } from './components/services/services.component';
 import { CreationsComponent } from './components/creations/creations.component';
@@ -29,7 +28,6 @@ const routes: Routes = [
   {
     path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: MaterialDashboardComponent },
-  { path: 'uploader', component: UploaderComponent },
   { path: 'about', component: AboutComponent},
   { path: 'services', component: ServicesComponent},
   { path: 'creations', component: CreationsComponent}
@@ -39,7 +37,6 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     MaterialDashboardComponent,
-    UploaderComponent,
     AboutComponent,
     ServicesComponent,
     CreationsComponent
