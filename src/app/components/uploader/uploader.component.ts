@@ -153,7 +153,7 @@ export class UploaderComponent implements OnInit {
     return Object.keys(fileProperties).map((key) => ({ 'key': key, 'value': fileProperties[key] }));
   }
 
-  protected export() {
+  public export() {
     console.log(this.urls);
   }
 }
