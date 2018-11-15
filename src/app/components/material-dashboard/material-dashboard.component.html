@@ -2,7 +2,7 @@
 <div class="grid-container" style="margin: 0">
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
+      <mat-card  (click)="goTo(card.href)" [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
         <mat-card-content class="dashboard-card-content">
           <div *ngIf="card.type =='BANNER'" style="cursor: default; margin-top: 50px">
             <p class="mat-h1" style="font-family: 'Century Gothic'; font-size: xx-large">SARAH LESALE</p>

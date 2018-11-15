@@ -1,0 +1,43 @@
+
+<div class="grid-container" style="margin: 0" (click)="goTo('dashboard')">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.type =='BANNER'" style="cursor: default; margin-top: 50px">
+            <p class="mat-h1" style="font-family: 'Century Gothic'; font-size: xx-large">SARAH LESALE</p>
+            <p class="mat-h3" style="font-family: 'Century Gothic'">Créatrice Florale</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../assets/fancy2.png"/>
+</div>
+
+<div  class="grid-container" style="text-align: center">
+  Chaque projet est un nouveau voyage floral et des rencontres fabuleuses. Laissez-vous embarquer dans ce magnifique voyage, ce bout de chemin que nous pouvons parcourir ensemble.
+  <br/><br/>
+  Je me spécialise dans les mariages et compositions funéraires. Ce sont deux horizons différents mais dont je suis passionnée.
+  <br/><br/>
+  N’hésitez pas à vous promener dans mon monde floral l’espace d’un instant et surtout, prenez le temps de réfléchir à ce que vous voulez <strong>VOUS.</strong>
+  <br/>
+  Nous pourrons par la suite y réfléchir ensemble et accorder nos envies et nos goûts.
+  <br/>
+  Chaque personne est différente, je suis à l’écoute et essaie de proposer le meilleur pour des compositions uniques et vivantes, dont vous vous souviendrez.
+  <br/><br/><br/><br/>
+  Chaque travail est différent. Il y a en effet énormément de possibilités, de choix, de matières premières, de matériaux.
+  <br/><br/>
+  Chaque fleur a une symbolique et peut vous emmener à des endroits bien différents, tout aussi surprenants… Dans des lieux exceptionnels que vous ignorez peut-être encore.
+  <br/><br/>
+  Je suis là pour faire un bout de route avec vous. Je suis à votre écoute et surtout présente pour chaque questionnement. N’hésitez donc pas!
+  <br/><br/>
+  <strong>Weeding</strong> :  Le budget commence à partir de <strong>600€</strong><br/>
+  <strong>Funeral</strong> :  Le budget commence à partir de <strong>60€</strong>
+</div>
+<div style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../assets/fancy1.png"/>
+</div>
+
+

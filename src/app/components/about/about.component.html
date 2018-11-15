@@ -1,0 +1,39 @@
+
+<div class="grid-container" style="margin: 0" (click)="goTo('dashboard')">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.type =='BANNER'" style="cursor: default; margin-top: 50px">
+            <p class="mat-h1" style="font-family: 'Century Gothic'; font-size: xx-large">SARAH LESALE</p>
+            <p class="mat-h3" style="font-family: 'Century Gothic'">Créatrice Florale</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../assets/fancy2.png"/>
+</div>
+
+<div  class="grid-container" style="text-align: center">
+  Bonjour, moi c’est Fleurs Lesale ou Sarah !
+  Vous sentez cette merveilleuse odeur quand vous entrez dans chez un fleuriste, l'herbe fraîchement coupée ou simplement l'odeur enivrante d'une rose sur votre table ?
+  Ce sont des petites choses simples, des bonheurs quotidiens que nous avons tous en commun.
+  <br/>
+  <br/>
+  Tout a commencé à l’âge de 8 ans, émerveillée par la nature, les fleurs, les couleurs, les odeurs…
+  Je savais ! Je voulais vivre avec les fleurs toute ma vie et en faire mon métier.
+  Les voir me procure un bonheur intense et j’en ai encore les larmes aux yeux quand je vois un mélange de fleurs sur ma table ou un simple coquelicot au bord de la route…
+  <br/>
+  <br/>
+  Mon rêve, je l’enseigne à des jeunes depuis maintenant 11 ans et j’ai encore soif d’apprendre tous les jours comme à mes premiers émerveillements, alors à peine âgée de 8 ans…
+  Ma vie est faite de fleurs, de créativité, d’amour et de projets,…
+  <br/>
+  <br/>
+  Je me dirige vers ce moyen de partage et j’essaie de vous transmettre ma passion, mon métier.
+  Vous faire rêver vous est mon premier souhait, tout en vous comblant avec mes compositions.
+</div>
+<div style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../assets/fancy1.png"/>
+</div>
