@@ -86,3 +86,29 @@
   color: #FFFFFF;
   text-shadow: 2px 2px 0px #333333, 5px 4px 0px rgba(0,0,0,0.15);
 }
+.cont {
+  text-decoration: none;
+  color:black
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}

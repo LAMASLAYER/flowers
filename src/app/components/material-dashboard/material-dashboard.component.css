@@ -29,13 +29,18 @@
   text-align: center;
 }
 
-.dashboard-card:hover > mat-card-content > .text > p {
+.dashboard-card:hover > mat-card-content > .title > p {
   transition: all .5s;
   -webkit-transform: scale(1.2);
 
 }
 
-.dashboard-card > mat-card-content > .text > p {
+.dashboard-card > mat-card-content > .title > p {
   transition: all .5s;
-  background-color: rgba(0,0,0,0.5);
 }
+
+.title {
+  color: #FFFFFF;
+  text-shadow: 2px 2px 0px #333333, 5px 4px 0px rgba(0,0,0,0.15);
+}
+

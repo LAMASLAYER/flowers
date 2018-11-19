@@ -22,6 +22,8 @@ import { MaterialDashboardComponent } from './components/material-dashboard/mate
 import { AboutComponent } from './components/about/about.component';
 import { ServicesComponent } from './components/services/services.component';
 import { CreationsComponent } from './components/creations/creations.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <== add the imports!
 
 
 const routes: Routes = [
@@ -30,7 +32,8 @@ const routes: Routes = [
   { path: 'dashboard', component: MaterialDashboardComponent },
   { path: 'about', component: AboutComponent},
   { path: 'services', component: ServicesComponent},
-  { path: 'creations', component: CreationsComponent}
+  { path: 'creations', component: CreationsComponent},
+  { path: 'contact', component: ContactComponent}
 ];
 
 @NgModule({
@@ -39,7 +42,8 @@ const routes: Routes = [
     MaterialDashboardComponent,
     AboutComponent,
     ServicesComponent,
-    CreationsComponent
+    CreationsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'fleurslesale', upload_preset: 'canh3gtz'}),
-    FileUploadModule
+    FileUploadModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy}

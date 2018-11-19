@@ -23,11 +23,17 @@ export class MaterialDashboardComponent {
             cols: 1,
             rows: 1,
             url: '../../../assets/IMG_0116.JPG',
-            fontSize: 'medium', margin: 120, width: 90, href: 'creations'},
+            fontSize: 'xx-large', margin: 120, width: 200, href: 'creations'},
           { title: 'A PROPOS DE MOI',
+            position: 'left',
+            cols: 1,
+            rows: 2,
+            url: '../../../assets/IMG_0084.JPG', fontSize: 'large', margin: 270, width: 225, href: 'about'},
+          { title: 'CONTACT',
+            position: 'left',
             cols: 1,
             rows: 1,
-            url: '../../../assets/IMG_0084.JPG', fontSize: 'medium', margin: 120, width: 90, href: 'about'}
+            url: '../../../assets/call.jpg', fontSize: 'xx-large', margin: 100, width: 200, href: 'contact'}
         ];
       }
 
@@ -39,9 +45,12 @@ export class MaterialDashboardComponent {
           rows: 2,
           url: '../../../assets/IMG_0121.JPG',
           fontSize: 'xx-large', margin: 270, width: 225, href: 'services' },
-        { title: 'A PROPOS DE MOI', cols: 1, rows: 1,
-          url: '../../../assets/IMG_0084.JPG', fontSize: 'xx-large', margin: 120,
-          width: 290, href: 'about' }
+        { title: 'A PROPOS DE MOI', cols: 1, rows: 2,
+          url: '../../../assets/IMG_0084.JPG', fontSize: 'xx-large', margin: 270,
+          width: 290, href: 'about' },
+        { title: 'CONTACT', cols: 1, rows: 1,
+          url: '../../../assets/call.jpg', fontSize: 'xx-large', margin: 120,
+          width: 290, href: 'contact' },
       ];
     })
   );
