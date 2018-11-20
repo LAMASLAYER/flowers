@@ -1,0 +1,114 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  transition: all .5s;
+  opacity: 1;
+
+}
+
+.dashboard-card:hover {
+  transition: all .5s;
+  position:absolute;
+  border-radius:30px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.dashboard-card:hover > mat-card-content > .text > p {
+  transition: all .5s;
+  -webkit-transform: scale(1.2);
+
+}
+
+.dashboard-card > mat-card-content > .text > p {
+  transition: all .5s;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.animation {
+  margin-top: 25px;
+  font-size: 21px;
+  text-align: center;
+  animation: fadein 4s;
+  -moz-animation: fadein 4s; /* Firefox */
+  -webkit-animation: fadein 4s; /* Safari and Chrome */
+  -o-animation: fadein 4s; /* Opera */
+}
+@keyframes fadein {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.title {
+  color: #FFFFFF;
+  text-shadow: 2px 2px 0px #333333, 5px 4px 0px rgba(0,0,0,0.15);
+}
+.cont {
+  text-decoration: none;
+  color:black
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}

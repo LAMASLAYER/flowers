@@ -18,22 +18,31 @@ import {RouterModule, Routes} from '@angular/router';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import * as  Cloudinary from 'cloudinary-core';
 import { FileUploadModule} from 'ng2-file-upload';
-import { MaterialDashboardComponent } from './components/material-dashboard/material-dashboard.component';
-import { AboutComponent } from './components/about/about.component';
-import { ServicesComponent } from './components/services/services.component';
-import { CreationsComponent } from './components/creations/creations.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <== add the imports!
+import { MaterialDashboardComponent } from './components/FR/material-dashboard/material-dashboard.component';
+import { AboutComponent } from './components/FR/about/about.component';
+import { ServicesComponent } from './components/FR/services/services.component';
+import { CreationsComponent } from './components/FR/creations/creations.component';
+import { ContactComponent } from './components/FR/contact/contact.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AboutComponent as AboutEnglish } from './components/EN/about/about.component';
+import { ContactComponent as ContactEnglish } from './components/EN/contact/contact.component';
+import { ServicesComponent as ServicesEnglish } from './components/EN/services/services.component';
+import { MaterialDashboardComponent as DashboardEnglish } from './components/EN/material-dashboard/material-dashboard.component';
+import { CreationsComponent as CreationsEnglish } from './components/EN/creations/creations.component';
 
 
 const routes: Routes = [
-  {
-    path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: MaterialDashboardComponent },
-  { path: 'about', component: AboutComponent},
-  { path: 'services', component: ServicesComponent},
-  { path: 'creations', component: CreationsComponent},
-  { path: 'contact', component: ContactComponent}
+  { path: '', redirectTo: 'en/dashboard', pathMatch: 'full' },
+  { path: 'fr/dashboard', component: MaterialDashboardComponent },
+  { path: 'fr/about', component: AboutComponent},
+  { path: 'fr/services', component: ServicesComponent},
+  { path: 'fr/creations', component: CreationsComponent},
+  { path: 'fr/contact', component: ContactComponent},
+  { path: 'en/dashboard', component: DashboardEnglish },
+  { path: 'en/about', component: AboutEnglish},
+  { path: 'en/services', component: ServicesEnglish},
+  { path: 'en/creations', component: CreationsEnglish},
+  { path: 'en/contact', component: ContactEnglish}
 ];
 
 @NgModule({
@@ -43,7 +52,12 @@ const routes: Routes = [
     AboutComponent,
     ServicesComponent,
     CreationsComponent,
-    ContactComponent
+    ContactComponent,
+    AboutEnglish,
+    ContactEnglish,
+    ServicesEnglish,
+    DashboardEnglish,
+    CreationsEnglish
   ],
   imports: [
     BrowserModule,

@@ -2,16 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
-import {Contact} from '../../models/contact';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  selector: 'app-services',
+  templateUrl: './services.component.html',
+  styleUrls: ['./services.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ServicesComponent implements OnInit {
   router: Router;
-  newMail: Contact;
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -30,12 +28,10 @@ export class ContactComponent implements OnInit {
 
   constructor(private breakpointObserver: BreakpointObserver, router: Router) {
     this.router = router;
-    this.newMail = new Contact();
   }
   ngOnInit() {
   }
   goTo(url: string) {
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['en/dashboard']);
   }
-
 }

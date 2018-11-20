@@ -1,0 +1,42 @@
+
+<div class="grid-container" style="margin: 0" (click)="goTo('dashboard')">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.type =='BANNER'" style="cursor: default; margin-top: 50px">
+            <p class="mat-h1 title" style="font-family: 'Century Gothic'; font-size: 400%">SARAH LESALE</p>
+            <p class="mat-h3 title" style="font-family: 'Century Gothic'; font-size: 200%">Floral Designer</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="animation" style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy2.png"/>
+</div>
+
+<div  class="grid-container animation" style="text-align: center; font-family: 'Times New Roman'">
+  Each project is a new floral journey and fabulous encounters. Let yourself embark on this wonderful journey, this piece of road that we can travel together.  <br/><br/>
+  <strong>
+    I specialize in weddings and funerary compositions.</strong> These are two different horizons but I am passionate about it.
+  <br/><br/>
+
+  Do not hesitate to walk in my floral world for a moment and above all, take the time to think about what <strong>YOU</strong> want <br/>
+  We can then think about it together and give our wishes and our tastes.
+  <br/>
+
+  Each person is different, I am listening and trying to offer the best for unique and lively compositions, which you will remember.
+  <br/><br/><br/><br/>
+  Every job is different. There is indeed a lot of possibilities, choices, materials.
+  <br/><br/>
+  Each flower has a symbolism and can take you to very different places, just as surprising ... In exceptional places that you may not know yet.
+  <br/><br/>
+  I'm here to go with you. I am listening to you and especially present for each questioning. Do not hesitate!
+  <br/><br/>
+</div>
+<div class="animation"  style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy1.png"/>
+</div>
+
+

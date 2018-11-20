@@ -1,0 +1,40 @@
+
+<div class="grid-container" style="margin: 0" (click)="goTo()">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.type =='BANNER'" style="cursor: default; margin-top: 50px">
+            <p class="mat-h1 title" style="font-family: 'Century Gothic'; font-size: 400%">SARAH LESALE</p>
+            <p class="mat-h3 title" style="font-family: 'Century Gothic'; font-size: 200%">Floral Designer</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="animation" style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy2.png"/>
+</div>
+
+<div class="grid-container animation" style="text-align: center; font-family: 'Times New Roman'">
+  Hello, I'm Fleurs Lesale or Sarah !
+
+  Do you smell that wonderful smell when you walk into a florist, freshly cut grass or just the intoxicating scent of a rose on your table?
+  These are simple little things, everyday pleasures that we all have in common.
+  <br/>
+  <br/>
+  Everything began at the age of 8, amazed by nature, flowers, colors, smells ...
+  I knew ! I wanted to live with flowers all my life and make it my job.
+  To see them gives me an intense happiness and I still have tears in my eyes when I see a mix of flowers on my table or a simple poppy at the edge of the road ...
+  <br/>
+  <br/>
+  My dream, I teach it to young people for 11 years now and I am still thirsty to learn every day as my first wonders, then barely 8 years old ...
+  My life is made of flowers, creativity, love and projects, ...
+  <br/>
+  <br/>
+  I go to this means of sharing and I try to convey my passion, my job.
+  Making you dream is my first wish, while filling you with my compositions.
+</div>
+<div class="animation" style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy1.png"/>
+</div>

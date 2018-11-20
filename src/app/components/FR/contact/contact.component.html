@@ -1,0 +1,28 @@
+<div class="grid-container" style="margin: 0" (click)="goTo('dashboard')">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.type =='BANNER'" style="cursor: default; margin-top: 50px">
+            <p class="mat-h1 title" style="font-family: 'Century Gothic'; font-size: 400%">SARAH LESALE</p>
+            <p class="mat-h3 title" style="font-family: 'Century Gothic'; font-size: 200%">Créatrice Florale</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="animation" style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy2.png"/>
+</div>
+
+<div  class="grid-container animation" style="text-align: center; font-family: 'Times New Roman'">
+  Je suis disponible par téléphone: <strong><a class="cont" href="tel:+32498721990">+32 498 72 19 90</a></strong>
+  <br/>
+  Ou par mail: <strong><a class="cont" href="mailto:sarahlesale@gmail.com">sarahlesale@gmail.com</a></strong>
+  <br/><br/>
+  N'hésitez pas à me suivre sur Facebook !
+  <a style="width:70px" href="https://www.facebook.com/Cr%C3%A9atrice-Florale-Sarah-Lesale-664399917100504/" class="fa fa-facebook"></a>
+</div>
+<div class="animation"  style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy1.png"/>
+</div>
