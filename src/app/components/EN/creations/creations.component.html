@@ -1,3 +1,105 @@
-<p>
-  En construction
-</p>
+<div class="grid-container" style="margin: 0" (click)="goTo('dashboard')">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.type =='BANNER'" style="cursor: default;">
+            <a style="float:right; color:white; cursor: pointer" class="title" >English</a>
+            <br/>
+            <a style="float:right; color:white; cursor: pointer" class="title" (click)="french()">French</a>
+            <br/>
+            <p class="mat-h1 title" style="font-family: 'Century Gothic'; font-size: 400%">SARAH LESALE</p>
+            <p class="mat-h3 title" style="font-family: 'Century Gothic'; font-size: 200%">Floral Designer</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="grid-container">
+<mdb-carousel [isControls]="true" [animation]="'slide'">
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0072.JPG" alt="First slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0073.JPG" alt="Second slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0074.JPG" alt="Third slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0075.JPG" alt="Fourth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0090.JPG" alt="Fifth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0081.JPG" alt="Sixth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0082.JPG" alt="Seventh slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0083.JPG" alt="Eighth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0084.JPG" alt="Ninth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0085.JPG" alt="Tenth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0086.JPG" alt="Eleventh slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0087.JPG" alt="Twelfth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0088.JPG" alt="Thirteenth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0089.JPG" alt="Fourteenth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0091.JPG" alt="Fifteenth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0092.JPG" alt="Sixteenth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0094.JPG" alt="Seventeenth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0095.JPG" alt="Eighteenth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0096.JPG" alt="Nineteenth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0097.JPG" alt="Twentieth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0098.JPG" alt="Twenty first slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0099.JPG" alt="Twenty second slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0091.JPG" alt="Twenty third slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0100.JPG" alt="Twenty fourth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0101.JPG" alt="Twenty fifth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0102.JPG" alt="Twenty sixth slide">
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <img class="d-block w-100" src="../../../../assets/IMG_0103.JPG" alt="Twenty seventh slide">
+  </mdb-carousel-item>
+</mdb-carousel>
+<!--/.Carousel Wrapper-->
+</div>

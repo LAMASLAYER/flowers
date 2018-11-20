@@ -29,6 +29,7 @@ import { ContactComponent as ContactEnglish } from './components/EN/contact/cont
 import { ServicesComponent as ServicesEnglish } from './components/EN/services/services.component';
 import { MaterialDashboardComponent as DashboardEnglish } from './components/EN/material-dashboard/material-dashboard.component';
 import { CreationsComponent as CreationsEnglish } from './components/EN/creations/creations.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 const routes: Routes = [
@@ -77,7 +78,8 @@ const routes: Routes = [
     CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'fleurslesale', upload_preset: 'canh3gtz'}),
     FileUploadModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy}

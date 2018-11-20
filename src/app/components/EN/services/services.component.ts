@@ -36,7 +36,7 @@ export class ServicesComponent implements OnInit {
   }
 
   public french() {
-    localStorage.setItem('fllang', 'en');
+    localStorage.setItem('fllang', 'fr');
     this.router.navigate(['fr/contact']);
   }
 }

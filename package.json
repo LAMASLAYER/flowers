@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
     "@cloudinary/angular-5.x": "^1.0.2",
+    "angular-bootstrap-md": "^6.3.0",
+    "chart.js": "^2.7.3",
     "cloudinary-core": "^2.5.0",
     "core-js": "^2.5.4",
     "express": "^4.16.3",
