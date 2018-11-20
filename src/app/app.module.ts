@@ -73,7 +73,7 @@ const routes: Routes = [
     MatSidenavModule,
     MatListModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'}),
     CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'fleurslesale', upload_preset: 'canh3gtz'}),
     FileUploadModule,
     FormsModule,
