@@ -34,4 +34,9 @@ export class ServicesComponent implements OnInit {
   goTo(url: string) {
     this.router.navigate(['en/dashboard']);
   }
+
+  public french() {
+    localStorage.setItem('fllang', 'en');
+    this.router.navigate(['fr/contact']);
+  }
 }

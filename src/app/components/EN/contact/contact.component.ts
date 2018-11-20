@@ -38,4 +38,10 @@ export class ContactComponent implements OnInit {
     this.router.navigate(['en/dashboard']);
   }
 
+  public french() {
+    localStorage.setItem('fllang', 'en');
+    this.router.navigate(['fr/contact']);
+  }
+
+
 }

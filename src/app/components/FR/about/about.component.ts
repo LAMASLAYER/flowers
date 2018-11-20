@@ -32,7 +32,12 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
   }
   goTo(url: string) {
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['fr/dashboard']);
+  }
+
+  public english() {
+    localStorage.setItem('fllang', 'en');
+    this.router.navigate(['en/contact']);
   }
 
 }
