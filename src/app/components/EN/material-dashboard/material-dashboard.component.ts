@@ -24,17 +24,17 @@ export class MaterialDashboardComponent implements OnInit {
             cols: 1,
             rows: 1,
             url: '../../../assets/IMG_0116.JPG',
-            fontSize: 'xx-large', margin: 120, width: 200, href: 'en/creations'},
+            fontSize: 'x-large', margin: 100, href: 'en/creations'},
           { title: 'ABOUT ME',
             position: 'left',
             cols: 1,
-            rows: 2,
-            url: '../../../assets/IMG_0084.JPG', fontSize: 'large', margin: 270, width: 225, href: 'en/about'},
+            rows: 1,
+            url: '../../../assets/IMG_0084.JPG', fontSize: 'x-large', margin: 100, href: 'en/about'},
           { title: 'CONTACT',
             position: 'left',
             cols: 1,
             rows: 1,
-            url: '../../../assets/call.jpg', fontSize: 'xx-large', margin: 100, width: 200, href: 'en/contact'}
+            url: '../../../assets/call.jpg', fontSize: 'x-large', margin: 100, href: 'en/contact'}
         ];
       }
 

@@ -23,17 +23,17 @@ export class MaterialDashboardComponent {
             cols: 1,
             rows: 1,
             url: '../../../assets/IMG_0116.JPG',
-            fontSize: 'xx-large', margin: 120, width: 200, href: 'fr/creations'},
-          { title: 'A PROPOS DE MOI',
+            fontSize: 'x-large', margin: 100, href: 'fr/creations'},
+          { title: 'A PROPOS',
             position: 'left',
             cols: 1,
-            rows: 2,
-            url: '../../../assets/IMG_0084.JPG', fontSize: 'large', margin: 270, width: 225, href: 'fr/about'},
+            rows: 1,
+            url: '../../../assets/IMG_0084.JPG', fontSize: 'x-large', margin: 100, href: 'fr/about'},
           { title: 'CONTACT',
             position: 'left',
             cols: 1,
             rows: 1,
-            url: '../../../assets/call.jpg', fontSize: 'xx-large', margin: 100, width: 200, href: 'fr/contact'}
+            url: '../../../assets/call.jpg', fontSize: 'x-large', margin: 100, href: 'fr/contact'}
         ];
       }
 
