@@ -40,4 +40,5 @@ export class AboutComponent implements OnInit {
     this.router.navigate(['fr/contact']);
   }
 
+
 }
