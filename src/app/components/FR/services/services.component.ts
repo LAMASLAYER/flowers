@@ -38,7 +38,7 @@ export class ServicesComponent implements OnInit {
 
   public english() {
     localStorage.setItem('fllang', 'en');
-    this.router.navigate(['en/contact']);
+    this.router.navigate(['en/services']);
   }
 
 }
