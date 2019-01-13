@@ -12,6 +12,9 @@ import {map} from 'rxjs/operators';
 export class CreationsComponent implements OnInit {
   router: Router;
   newMail: Contact;
+  public menu: boolean;
+  public barcelone: boolean;
+  public mariage: boolean;
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -33,6 +36,8 @@ export class CreationsComponent implements OnInit {
     this.newMail = new Contact();
   }
   ngOnInit() {
+    this.menu = false;
+    this.mariage = true
   }
   goTo(url: string) {
     this.router.navigate(['fr/dashboard']);
