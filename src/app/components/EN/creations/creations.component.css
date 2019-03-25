@@ -112,3 +112,7 @@
   background: #3B5998;
   color: white;
 }
+
+img {
+  image-orientation: from-image;
+}
