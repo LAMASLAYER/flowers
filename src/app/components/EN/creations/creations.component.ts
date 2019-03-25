@@ -45,6 +45,7 @@ export class CreationsComponent implements OnInit {
   }
 
   public french() {
+    console.log("here");
     localStorage.setItem('fllang', 'fr');
     this.router.navigate(['fr/creations']);
   }

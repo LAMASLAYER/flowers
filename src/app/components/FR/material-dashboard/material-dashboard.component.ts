@@ -56,6 +56,7 @@ export class MaterialDashboardComponent {
   );
 
   goTo(url: string) {
+    console.log(url);
     this.router.navigate([url]);
   }
   constructor(private breakpointObserver: BreakpointObserver, router: Router) {
