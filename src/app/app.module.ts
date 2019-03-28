@@ -30,6 +30,8 @@ import { ServicesComponent as ServicesEnglish } from './components/EN/services/s
 import { MaterialDashboardComponent as DashboardEnglish } from './components/EN/material-dashboard/material-dashboard.component';
 import { CreationsComponent as CreationsEnglish } from './components/EN/creations/creations.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { UploaderComponent } from './components/uploader/uploader.component';
+import {NgxLoadingModule} from 'ngx-loading';
 
 
 const routes: Routes = [
@@ -43,7 +45,8 @@ const routes: Routes = [
   { path: 'en/about', component: AboutEnglish},
   { path: 'en/services', component: ServicesEnglish},
   { path: 'en/creations', component: CreationsEnglish},
-  { path: 'en/contact', component: ContactEnglish}
+  { path: 'en/contact', component: ContactEnglish},
+  { path: 'upload', component: UploaderComponent }
 ];
 
 @NgModule({
@@ -58,7 +61,8 @@ const routes: Routes = [
     ContactEnglish,
     ServicesEnglish,
     DashboardEnglish,
-    CreationsEnglish
+    CreationsEnglish,
+    UploaderComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +83,9 @@ const routes: Routes = [
     FileUploadModule,
     FormsModule,
     ReactiveFormsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    NgxLoadingModule.forRoot({})
+
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy}
