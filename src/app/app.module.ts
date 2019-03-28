@@ -31,6 +31,7 @@ import { MaterialDashboardComponent as DashboardEnglish } from './components/EN/
 import { CreationsComponent as CreationsEnglish } from './components/EN/creations/creations.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {NavbarComponent} from './components/navbar/navbar.component';
+import { UploaderComponent } from './components/uploader/uploader.component';
 
 
 const routes: Routes = [
@@ -44,7 +45,8 @@ const routes: Routes = [
   { path: 'en/about', component: AboutEnglish},
   { path: 'en/services', component: ServicesEnglish},
   { path: 'en/creations', component: CreationsEnglish},
-  { path: 'en/contact', component: ContactEnglish}
+  { path: 'en/contact', component: ContactEnglish},
+  { path: 'upload', component: UploaderComponent }
 ];
 
 @NgModule({
@@ -60,7 +62,8 @@ const routes: Routes = [
     ServicesEnglish,
     DashboardEnglish,
     CreationsEnglish,
-    NavbarComponent
+    NavbarComponent,
+    UploaderComponent
   ],
   imports: [
     BrowserModule,
