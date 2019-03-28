@@ -5,7 +5,6 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Assets} from '../../../models/assets';
-import {isDefined} from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-creations',
@@ -31,7 +30,7 @@ export class CreationsComponent implements OnInit {
         if (matches) {
             return [
               { type: 'BANNER', cols: 2, rows: 1, url: '../../../assets/IMG_0080.JPG', href: 'dashboard' },
-              { title: 'POTATO', cols: 1, rows: 1,
+              { title: 'WEDDINGS', cols: 1, rows: 1,
                 url: wedding.url, fontSize: 'xx-large', margin: 120, width: 200 },
               { title: 'FUNERALS', cols: 1, rows: 1,
                 url: funerals.url, fontSize: 'xx-large', margin: 120, width: 200 },
