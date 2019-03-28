@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {Contact} from '../../../models/contact';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {Assets} from '../../../models/assets';
 
 @Component({
   selector: 'app-creations',
@@ -11,10 +12,10 @@ import {map} from 'rxjs/operators';
 })
 export class CreationsComponent implements OnInit {
   router: Router;
-  newMail: Contact;
   public menu: boolean;
-  public barcelone: boolean;
-  public mariage: boolean;
+  private http: HttpClient;
+  public weddingUrl: string;
+  public funeralsUrl: string;
 
 
   /** Based on the screen size, switch from standard to one column per row */
@@ -32,20 +33,27 @@ export class CreationsComponent implements OnInit {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver, router: Router) {
+  constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient) {
     this.router = router;
-    this.newMail = new Contact();
+    this.http = http;
   }
   ngOnInit() {
-    this.menu = false;
-    this.mariage = true;
+    this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding').subscribe(
+      (data: Array<Assets>) => {
+        this.weddingUrl =  data[Math.floor(Math.random() * data.length)]['url'];
+      }
+    );
+    this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/funerals').subscribe(
+      (data: Array<Assets>) => {
+        this.funeralsUrl = data[Math.floor(Math.random() * data.length)]['url'];
+      }
+    );
   }
   goTo(url: string) {
     this.router.navigate(['en/dashboard']);
   }
 
   public french() {
-    console.log("here");
     localStorage.setItem('fllang', 'fr');
     this.router.navigate(['fr/creations']);
   }

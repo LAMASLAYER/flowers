@@ -30,6 +30,7 @@ import { ServicesComponent as ServicesEnglish } from './components/EN/services/s
 import { MaterialDashboardComponent as DashboardEnglish } from './components/EN/material-dashboard/material-dashboard.component';
 import { CreationsComponent as CreationsEnglish } from './components/EN/creations/creations.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {NavbarComponent} from './components/navbar/navbar.component';
 
 
 const routes: Routes = [
@@ -58,7 +59,8 @@ const routes: Routes = [
     ContactEnglish,
     ServicesEnglish,
     DashboardEnglish,
-    CreationsEnglish
+    CreationsEnglish,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
-<div class="grid-container" style="margin: 0" (click)="goTo('dashboard')">
-  <mat-grid-list cols="2" rowHeight="350px">
+<app-navbar></app-navbar>
+
+<div class="grid-container d-none d-md-block" style="margin: 0" (click)="goTo('dashboard')">
+<mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
         <mat-card-content class="dashboard-card-content">
