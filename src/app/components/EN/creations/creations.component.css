@@ -115,4 +115,5 @@
 
 img {
   image-orientation: from-image;
+  border-radius: 12px;
 }

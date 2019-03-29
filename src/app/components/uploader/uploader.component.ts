@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-file-upload';
 import { Cloudinary } from '@cloudinary/angular-5.x';
 import {Assets} from '../../models/assets';
+import {AssetHandler} from '../../models/asset-handler';
 
 @Component({
   selector: 'app-uploader',
@@ -18,6 +19,9 @@ export class UploaderComponent implements OnInit {
   private title: string;
   public urls: Array<string>;
   public category: string;
+  public width: number;
+  public height: number;
+  public assetHandler: Array<AssetHandler>;
 
   constructor(
     private cloudinary: Cloudinary,
@@ -25,8 +29,7 @@ export class UploaderComponent implements OnInit {
     private http: HttpClient
   ) {
     this.responses = [];
-    this.title = '';
-    this.urls = [];
+    this.assetHandler = new Array<AssetHandler>();
   }
 
   ngOnInit(): void {
@@ -95,8 +98,12 @@ export class UploaderComponent implements OnInit {
           this.responses.push(fileItem);
         }
         if (fileItem.data.url !== undefined) {
-          this.urls.push(fileItem.data.url);
-          return this.urls;
+          const tempHandler = new AssetHandler();
+          tempHandler.height =  fileItem.data.height;
+          tempHandler.width = fileItem.data.width;
+          tempHandler.url = fileItem.data.url;
+          this.assetHandler.push(tempHandler);
+          return this.assetHandler;
         }
       });
     };
@@ -156,18 +163,47 @@ export class UploaderComponent implements OnInit {
   }
 
   protected export() {
+    for (let j = 0; j < this.responses.length; j++) {
+      if (this.responses[j].status !== 200) {
+        alert('L\'upload n\'est pas terminé.');
+        return;
+      }
+    }
+    console.log('ok');
     let asset: Assets;
     asset = new class implements Assets {
       category: string;
       id: number;
       url: string;
+      orientation: string;
     };
-    for (let i = 0; i < this.urls.length; i++) {
-      asset.url = this.urls[i];
-      asset.category = 'potato';
+    for (let i = 0; i < this.assetHandler.length; i++) {
+      if (this.assetHandler[i].width < this.assetHandler[i].height) {
+        asset.orientation = 'portrait';
+      } else {
+        asset.orientation = 'paysage';
+      }
+      asset.url = this.assetHandler[i].url;
+      asset.category = this.getCategory();
       asset.id = null;
       console.log(asset);
-      this.http.post('https://pathfinderappfinder.herokuapp.com/assets/post', asset).subscribe();
+      this.http.post('https://pathfinderappfinder.herokuapp.com/assets/post', asset).subscribe(
+        res => {
+          if (i === this.assetHandler.length) {
+            alert('Upload terminé.');
+            this.responses = [];
+          }
+        }
+      );
     }
+    this.assetHandler = [];
+  }
+
+  public getCategory(): string {
+    return this.category;
+  }
+  public setCategory(category: string) {
+    console.log(category);
+    this.category = category;
   }
 }

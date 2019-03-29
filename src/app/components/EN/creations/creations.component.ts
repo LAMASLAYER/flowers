@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
@@ -16,7 +16,8 @@ export class CreationsComponent implements OnInit {
   private http: HttpClient;
   public weddingUrl: string;
   public funeralsUrl: string;
-
+  public weddingOrientation: string;
+  public funeralsOrientation: string;
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -40,15 +41,22 @@ export class CreationsComponent implements OnInit {
   ngOnInit() {
     this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding').subscribe(
       (data: Array<Assets>) => {
-        this.weddingUrl =  data[Math.floor(Math.random() * data.length)]['url'];
+        const randomData = data[Math.floor(Math.random() * data.length)];
+        console.log(randomData);
+        this.weddingUrl =  randomData.url;
+        this.weddingOrientation = randomData.orientation;
+        console.log(this.weddingOrientation);
       }
     );
     this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/funerals').subscribe(
       (data: Array<Assets>) => {
-        this.funeralsUrl = data[Math.floor(Math.random() * data.length)]['url'];
+        const randomData2 = data[Math.floor(Math.random() * data.length)];
+        this.funeralsUrl = randomData2.url;
+        this.funeralsOrientation = randomData2.orientation;
       }
     );
   }
+
   goTo(url: string) {
     this.router.navigate(['en/dashboard']);
   }

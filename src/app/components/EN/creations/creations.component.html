@@ -24,30 +24,30 @@
 
 <div class="grid-container d-none d-md-block">
   <div class="row">
-      <div class="col-5" style="padding: 0;max-width: 750px;margin-left:auto; margin-right:auto; margin-top: 5%; cursor: pointer">
-        <p class="mat-h3 title" style="font-family: 'Century Gothic';position: absolute;left:280px;top:160px; font-size: 200%">WEDDINGS</p>
+      <div class="col-5" style="padding: 0;max-width: 750px;margin-left:auto; margin-right:auto; margin-top: 5%;text-align: center;">
 
-        <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="width:750px;height:421px"/>
+        <img alt="wedding" *ngIf="weddingUrl!=null && weddingOrientation=='paysage'" [src]="weddingUrl" style="width:750px;height:421px; cursor: pointer"/>
+        <img alt="wedding" *ngIf="weddingUrl!=null && weddingOrientation=='portrait'" [src]="weddingUrl" style="width:421px;height:750px;margin-top: -150px; cursor: pointer"/>
       </div>
 
-      <div class="col-5" style="padding: 0;max-width: 750px; margin-left:auto;margin-right:auto;margin-top: 5%; cursor: pointer">
-        <p class="mat-h3 title" style="font-family: 'Century Gothic';position: absolute;left:280px;top:160px; font-size: 200%">FUNERALS</p>
-        <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="width:750px;height:421px"/>
-    </div>
+      <div class="col-5" style="padding: 0;max-width: 750px; margin-left:auto;margin-right:auto;margin-top: 5%;text-align: center">
+        <img alt="funerals" *ngIf="funeralsUrl!=null && funeralsOrientation=='paysage'" [src]="funeralsUrl" style="width:750px;height:421px; cursor: pointer"/>
+        <img alt="funerals" *ngIf="funeralsUrl!=null && funeralsOrientation=='portrait'" [src]="funeralsUrl" style="width:421px;height:750px;margin-top: -150px; cursor: pointer"/>
+      </div>
   </div>
 </div>
 
 <div class="grid-container d-sm-block d-md-none">
   <div class="row">
-    <div class="col-5" style="padding: 0;max-width: 250px;margin-left:auto; margin-right:auto; margin-top: 5%; cursor: pointer">
-      <p class="mat-h3 title" style="font-family: 'Century Gothic';position: absolute;left:85px;top:50px;font-size: 110%">WEDDINGS</p>
+    <div class="col-5" style="padding: 0;max-width: 250px;margin-left:auto; margin-right:auto; margin-top: 5%;text-align: center">
 
-      <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="width:250px;height:141px"/>
+      <img alt="wedding" *ngIf="weddingUrl!=null && weddingOrientation=='paysage'" [src]="weddingUrl" style="width:250px;height:141px; cursor: pointer"/>
+      <img alt="wedding" *ngIf="weddingUrl!=null && weddingOrientation=='portrait'" [src]="weddingUrl" style="width:141px;height:250px; cursor: pointer"/>
     </div>
-    <div class="col-5" style="padding: 0;max-width: 250px; margin-left:auto;margin-right:auto;margin-top: 5%; cursor: pointer">
-      <p class="mat-h3 title" style="font-family: 'Century Gothic';position: absolute;left:90px;top:50px;font-size: 110%">FUNERALS</p>
+    <div class="col-5" style="padding: 0;max-width: 250px; margin-left:auto;margin-right:auto;margin-top: 5%;text-align: center">
 
-      <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="width:250px;height:141px"/>
+      <img alt="funerals" *ngIf="funeralsUrl!=null && funeralsOrientation=='paysage'" [src]="funeralsUrl" style="width:250px;height:141px; cursor: pointer"/>
+      <img alt="funerals" *ngIf="funeralsUrl!=null && funeralsOrientation=='portrait'" [src]="funeralsUrl"  style="width:141px;height:250px; cursor: pointer"/>
     </div>
   </div>
 </div>
