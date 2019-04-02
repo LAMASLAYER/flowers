@@ -4,6 +4,7 @@ import { FileUploader, FileUploaderOptions, ParsedResponseHeaders } from 'ng2-fi
 import { Cloudinary } from '@cloudinary/angular-5.x';
 import {Assets} from '../../models/assets';
 import {AssetHandler} from '../../models/asset-handler';
+import {Album} from '../../models/album';
 
 @Component({
   selector: 'app-uploader',
@@ -22,6 +23,10 @@ export class UploaderComponent implements OnInit {
   public width: number;
   public height: number;
   public assetHandler: Array<AssetHandler>;
+  public uploaded: boolean;
+  public albums: Array<Album>;
+  public newAlbum = new Album();
+  public album: string;
 
   constructor(
     private cloudinary: Cloudinary,
@@ -33,6 +38,7 @@ export class UploaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.uploaded = false;
     // Create the file uploader, wire it to upload to your account
     const uploaderOptions: FileUploaderOptions = {
       url: `https://api.cloudinary.com/v1_1/${this.cloudinary.config().cloud_name}/upload`,
@@ -78,6 +84,7 @@ export class UploaderComponent implements OnInit {
 
     // Insert or update an entry in the responses array
     const upsertResponse = fileItem => {
+      this.uploaded = true;
       // Run the update in a custom zone since for some reason change detection isn't performed
       // as part of the XHR request to upload the files.
       // Running in a custom zone forces change detection
@@ -171,12 +178,7 @@ export class UploaderComponent implements OnInit {
     }
     console.log('ok');
     let asset: Assets;
-    asset = new class implements Assets {
-      category: string;
-      id: number;
-      url: string;
-      orientation: string;
-    };
+    asset = new Assets();
     for (let i = 0; i < this.assetHandler.length; i++) {
       if (this.assetHandler[i].width < this.assetHandler[i].height) {
         asset.orientation = 'portrait';
@@ -186,6 +188,7 @@ export class UploaderComponent implements OnInit {
       asset.url = this.assetHandler[i].url;
       asset.category = this.getCategory();
       asset.id = null;
+      asset.album = this.getAlbum();
       console.log(asset);
       this.http.post('https://pathfinderappfinder.herokuapp.com/assets/post', asset).subscribe(
         res => {
@@ -197,6 +200,7 @@ export class UploaderComponent implements OnInit {
       );
     }
     this.assetHandler = [];
+    this.uploaded = false;
   }
 
   public getCategory(): string {
@@ -205,5 +209,43 @@ export class UploaderComponent implements OnInit {
   public setCategory(category: string) {
     console.log(category);
     this.category = category;
+  }
+
+  public getAlbum(): string {
+    return this.album;
+  }
+  public setAlbum(album: string) {
+    console.log(album);
+    this.album = album;
+  }
+
+  public saveAlbum() {
+    if (this.newAlbum.album === '' || this.newAlbum.album === undefined) {
+      this.newAlbum.albumId = null;
+      this.newAlbum.category = this.getCategory();
+      return this.http.post('https://pathfinderappfinder.herokuapp.com/album/post', this.newAlbum).subscribe(
+        res => {
+          alert('L\'album ' + this.newAlbum.album + ' a été correctement créé.');
+          window.location.reload();
+        }
+      );
+    } else {
+      alert('Impossible de créer un album sans nom.');
+    }
+  }
+
+  public getAlbumByCategory() {
+    if (this.getCategory() !== '' && this.getCategory() !== null) {
+      return this.http.get('https://pathfinderappfinder.herokuapp.com/album/category/' + this.getCategory()).subscribe(
+        (res: Array<Album>) => {
+          this.albums = res;
+          if (this.albums.length > 0) {
+            this.setAlbum(this.albums[0].album);
+          } else {
+            this.setAlbum('');
+          }
+        }
+      );
+    }
   }
 }

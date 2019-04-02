@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+
+<div class="grid-container d-none d-md-block" style="margin: 0" (click)="goTo('dashboard')">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.type =='BANNER'" style="cursor: default;">
+            <a style="float:right; color:white; cursor: pointer" class="title" >English</a>
+            <br/>
+            <a style="float:right; color:white; cursor: pointer" class="title" (click)="french()">French</a>
+            <br/>
+            <p class="mat-h1 title" style="font-family: 'Century Gothic'; font-size: 400%">SARAH LESALE</p>
+            <p class="mat-h3 title" style="font-family: 'Century Gothic'; font-size: 200%">Floral Designer</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let a of assets" class="column">
+     <img [alt]="a.album" [src]="a.url" style="width: 100%"/>
+    </div>
+  </div>
+</div>

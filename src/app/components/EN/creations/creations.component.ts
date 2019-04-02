@@ -58,7 +58,7 @@ export class CreationsComponent implements OnInit {
   }
 
   goTo(url: string) {
-    this.router.navigate(['en/dashboard']);
+    this.router.navigate([url]);
   }
 
   public french() {

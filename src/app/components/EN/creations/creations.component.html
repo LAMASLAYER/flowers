@@ -24,15 +24,15 @@
 
 <div class="grid-container d-none d-md-block">
   <div class="row">
-      <div class="col-5" style="padding: 0;max-width: 750px;margin-left:auto; margin-right:auto; margin-top: 5%;text-align: center;">
+      <div (click)="goTo('en/creations/wedding')" class="col-5" style="padding: 0;max-width: 750px;margin-left:auto; margin-right:auto; margin-top: 5%;text-align: center;">
 
-        <img alt="wedding" *ngIf="weddingUrl!=null && weddingOrientation=='paysage'" [src]="weddingUrl" style="width:750px;height:421px; cursor: pointer"/>
-        <img alt="wedding" *ngIf="weddingUrl!=null && weddingOrientation=='portrait'" [src]="weddingUrl" style="width:421px;height:750px;margin-top: -150px; cursor: pointer"/>
+        <img alt="wedding" *ngIf="weddingUrl!=null && weddingOrientation=='paysage'" [src]="weddingUrl" style="width:750px;height:450px; cursor: pointer"/>
+        <img alt="wedding" *ngIf="weddingUrl!=null && weddingOrientation=='portrait'" [src]="weddingUrl" style="width:450px;height:750px;margin-top: -150px; cursor: pointer"/>
       </div>
 
-      <div class="col-5" style="padding: 0;max-width: 750px; margin-left:auto;margin-right:auto;margin-top: 5%;text-align: center">
-        <img alt="funerals" *ngIf="funeralsUrl!=null && funeralsOrientation=='paysage'" [src]="funeralsUrl" style="width:750px;height:421px; cursor: pointer"/>
-        <img alt="funerals" *ngIf="funeralsUrl!=null && funeralsOrientation=='portrait'" [src]="funeralsUrl" style="width:421px;height:750px;margin-top: -150px; cursor: pointer"/>
+      <div (click)="goTo('en/creations/funerals')" class="col-5" style="padding: 0;max-width: 750px; margin-left:auto;margin-right:auto;margin-top: 5%;text-align: center">
+        <img alt="funerals" *ngIf="funeralsUrl!=null && funeralsOrientation=='paysage'" [src]="funeralsUrl" style="width:750px;height:450px; cursor: pointer"/>
+        <img alt="funerals" *ngIf="funeralsUrl!=null && funeralsOrientation=='portrait'" [src]="funeralsUrl" style="width:450px;height:750px;margin-top: -150px; cursor: pointer"/>
       </div>
   </div>
 </div>

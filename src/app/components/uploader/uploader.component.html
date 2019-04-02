@@ -4,16 +4,22 @@
       <div class="form_controls">
         <div style="text-align: center" class="upload_button_holder">
           <div class="row col-12">
-           <label>Choisir une catégorie</label>
-          <select class="form-control" (change)="setCategory($event.target.value)">
+           <label for="category">Choisir une catégorie</label>
+          <select id="category" class="form-control" (change)="setCategory($event.target.value);getAlbumByCategory()">
               <option>
               </option>
               <option>wedding</option>
               <option>funerals</option>
             </select>
+            <label for="album">Choisir un album</label>
+            <select id="album" class="form-control" (change)="setAlbum($event.target.value)">
+              <option *ngFor="let a of albums">{{a.album}}</option>
+            </select>
+            <button [disabled]="getCategory()==null || getCategory()==''" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ajouter un album</button>
+
            </div>
-            <label *ngIf="getCategory()!=null && getCategory()!='' && responses[0]!=null && responses[0].status!=null" style="text-align: center;margin-top: 3%" class="btn btn-primary" for="fileupload">Upload</label>
-          <label *ngIf="responses[0]!=null && responses[0].status!=null" class="btn btn-primary"  style="margin-top: 3%;" (click)="export()">Terminé</label>
+          <label *ngIf="getCategory()!=null && getCategory()!='' && getAlbum()!=null && getAlbum()!='' && uploaded==false" style="text-align: center;margin-top: 3%" class="btn btn-info btn-lg" for="fileupload">Upload</label>
+          <label *ngIf="responses[0]!=null && responses[0].status!=null" class="btn btn-info btn-lg" style="margin-top: 3%;" (click)="export()">Terminé</label>
           <!-- onChange hanlder resets the input value to get the change event when uploading the same file consecutively -->
           <input *ngIf="getCategory()!=null"  type="file" id="fileupload" #fileInput ng2FileSelect [style.display]="'none'" [uploader]="uploader" (change)="fileInput.value=''"
                  multiple />
@@ -39,4 +45,30 @@
     </div>
   </div>
 
+</div>
+
+
+<!-- Trigger the modal with a button -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Ajouter un album</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" (change)="newAlbum.album=$event.target.value">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="saveAlbum()">Ok</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+
+      </div>
+    </div>
+
+  </div>
 </div>

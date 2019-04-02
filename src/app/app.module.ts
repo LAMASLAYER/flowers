@@ -32,6 +32,8 @@ import { CreationsComponent as CreationsEnglish } from './components/EN/creation
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import { UploaderComponent } from './components/uploader/uploader.component';
+import { WeddingComponent } from './components/EN/wedding/wedding.component';
+import { FuneralsComponent } from './components/EN/funerals/funerals.component';
 
 
 const routes: Routes = [
@@ -46,7 +48,9 @@ const routes: Routes = [
   { path: 'en/services', component: ServicesEnglish},
   { path: 'en/creations', component: CreationsEnglish},
   { path: 'en/contact', component: ContactEnglish},
-  { path: 'upload', component: UploaderComponent }
+  { path: 'upload', component: UploaderComponent },
+  { path: 'en/creations/wedding', component: WeddingComponent},
+  { path: 'en/creations/funerals', component: FuneralsComponent }
 ];
 
 @NgModule({
@@ -63,7 +67,9 @@ const routes: Routes = [
     DashboardEnglish,
     CreationsEnglish,
     NavbarComponent,
-    UploaderComponent
+    UploaderComponent,
+    WeddingComponent,
+    FuneralsComponent
   ],
   imports: [
     BrowserModule,
