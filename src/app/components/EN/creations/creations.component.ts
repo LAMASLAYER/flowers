@@ -39,7 +39,7 @@ export class CreationsComponent implements OnInit {
     this.http = http;
   }
   ngOnInit() {
-    this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding').subscribe(
+    this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding/orientation/portrait').subscribe(
       (data: Array<Assets>) => {
         const randomData = data[Math.floor(Math.random() * data.length)];
         console.log(randomData);
@@ -48,7 +48,7 @@ export class CreationsComponent implements OnInit {
         console.log(this.weddingOrientation);
       }
     );
-    this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/funerals').subscribe(
+    this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/funerals/orientation/portrait').subscribe(
       (data: Array<Assets>) => {
         const randomData2 = data[Math.floor(Math.random() * data.length)];
         this.funeralsUrl = randomData2.url;

@@ -220,7 +220,9 @@ export class UploaderComponent implements OnInit {
   }
 
   public saveAlbum() {
-    if (this.newAlbum.album === '' || this.newAlbum.album === undefined) {
+    console.log(this.newAlbum);
+    console.log(this.newAlbum.album);
+    if (this.newAlbum.album !== '' && this.newAlbum.album !== undefined) {
       this.newAlbum.albumId = null;
       this.newAlbum.category = this.getCategory();
       return this.http.post('https://pathfinderappfinder.herokuapp.com/album/post', this.newAlbum).subscribe(

@@ -61,7 +61,8 @@
         <h4 class="modal-title">Ajouter un album</h4>
       </div>
       <div class="modal-body">
-        <input type="text" (change)="newAlbum.album=$event.target.value">
+        <label for="albumName">Nom</label>
+        <input id="albumName" type="text" (input)="newAlbum.album=$event.target.value">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="saveAlbum()">Ok</button>
