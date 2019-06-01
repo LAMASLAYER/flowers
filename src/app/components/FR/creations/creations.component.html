@@ -1,12 +1,14 @@
-<div class="grid-container" style="margin: 0" (click)="goTo('dashboard')">
+<app-navbar></app-navbar>
+
+<div class="grid-container d-none d-md-block" style="margin: 0" (click)="goTo('dashboard')">
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
         <mat-card-content class="dashboard-card-content">
           <div *ngIf="card.type =='BANNER'" style="cursor: default;">
-            <a style="float:right; color:white; cursor: pointer" class="title" (click)="english()">Anglais</a>
+            <a style="float:right; color:white; cursor: pointer" class="title" >English</a>
             <br/>
-            <a style="float:right; color:white; cursor: pointer" class="title" >Français</a>
+            <a style="float:right; color:white; cursor: pointer" class="title" (click)="french()">French</a>
             <br/>
             <p class="mat-h1 title" style="font-family: 'Century Gothic'; font-size: 400%">SARAH LESALE</p>
             <p class="mat-h3 title" style="font-family: 'Century Gothic'; font-size: 200%">Floral Designer</p>
@@ -15,182 +17,71 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-</div>
-
-<div *ngIf="menu==true">
 
 </div>
-
-<div *ngIf="barcelone==true;" class="grid-container">
-  <mdb-carousel [isControls]="true" [animation]="'slide'">
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0072.JPG" alt="First slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0073.JPG" alt="Second slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0074.JPG" alt="Third slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0075.JPG" alt="Fourth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0090.JPG" alt="Fifth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0081.JPG" alt="Sixth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0082.JPG" alt="Seventh slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0083.JPG" alt="Eighth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0084.JPG" alt="Ninth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0085.JPG" alt="Tenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0086.JPG" alt="Eleventh slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0087.JPG" alt="Twelfth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0088.JPG" alt="Thirteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0089.JPG" alt="Fourteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0091.JPG" alt="Fifteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0092.JPG" alt="Sixteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0094.JPG" alt="Seventeenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0095.JPG" alt="Eighteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0096.JPG" alt="Nineteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0097.JPG" alt="Twentieth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0098.JPG" alt="Twenty first slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0099.JPG" alt="Twenty second slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0091.JPG" alt="Twenty third slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0100.JPG" alt="Twenty fourth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0101.JPG" alt="Twenty fifth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0102.JPG" alt="Twenty sixth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/IMG_0103.JPG" alt="Twenty seventh slide">
-    </mdb-carousel-item>
-  </mdb-carousel>
-  <!--/.Carousel Wrapper-->
+<div class="animation" style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy2.png"/>
 </div>
 
-<div *ngIf="mariage==true;" class="grid-container">
-  <mdb-carousel [isControls]="true" [animation]="'slide'">
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(1).jpg" alt="First slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(2).jpg" alt="Second slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(3).jpg" alt="Third slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(4).jpg" alt="Fourth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(5).jpg" alt="Fifth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(6).jpg" alt="Sixth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(7).jpg" alt="Seventh slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(8).jpg" alt="Eighth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(9).jpg" alt="Ninth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(10).jpg" alt="Tenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(11).jpg" alt="Eleventh slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(12).jpg" alt="Twelfth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(13).jpg" alt="Thirteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(14).jpg" alt="Fourteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(15).jpg" alt="Fifteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(16).jpg" alt="Sixteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(17).jpg" alt="Seventeenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(18).jpg" alt="Eighteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(19).jpg" alt="Nineteenth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(20).jpg" alt="Twentieth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(21).JPG" alt="Twenty first slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(22).JPG" alt="Twenty second slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(23).JPG" alt="Twenty third slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(24).JPG" alt="Twenty fourth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(25).JPG" alt="Twenty fifth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(26).JPG" alt="Twenty sixth slide">
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <img class="d-block w-100" src="../../../../assets/mariage/mariage%20(27).JPG" alt="Twenty seventh slide">
-    </mdb-carousel-item>
-  </mdb-carousel>
-  <!--/.Carousel Wrapper-->
+<!--ALL PAYSAGE-->
+<div *ngIf="weddingOrientation=='paysage'" class="grid-container d-none d-sm-block">
+  <div class="row">
+      <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
+        <p class="title" style="margin: auto; position: absolute; margin-left:170px; margin-top: 170px; font-size:300%">WEDDINGS</p>
+        <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 540px"/>
+      </div>
+
+      <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
+        <p class="title" style="margin: auto; position: absolute; margin-left:170px; margin-top: 170px; font-size:300%">FUNERALS</p>
+        <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 540px"/>
+      </div>
+  </div>
+</div>
+
+<!--PHONE PAYSAGE-->
+<div *ngIf="weddingOrientation=='paysage'" class="grid-container d-block d-sm-none">
+    <div class="row">
+        <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
+          <p class="title" style="margin: auto; position: absolute; margin-left:48px; margin-top: 35px; font-size:200%">WEDDINGS</p>
+          <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 100%"/>
+        </div>
+  
+        <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
+          <p class="title" style="margin: auto; position: absolute; margin-left:56px; margin-top: 35px; font-size:200%">FUNERALS</p>
+          <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 100%"/>
+        </div>
+    </div>
+  </div>
+
+<!--ALL PORTRAIT-->
+<div *ngIf="weddingOrientation=='portrait'" class="grid-container d-none d-sm-block">
+  <div class="row">
+      <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
+        <p class="title" style="margin: auto; position: absolute; margin-left:170px; margin-top: 170px; font-size:300%">WEDDINGS</p>
+        <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 540px"/>
+      </div>
+
+      <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
+        <p class="title" style="margin: auto; position: absolute; margin-left:170px; margin-top: 170px; font-size:300%">FUNERALS</p>
+        <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 540px"/>
+      </div>
+  </div>
+</div>
+
+<!--PHONE PORTRAIT-->
+<div *ngIf="weddingOrientation=='portrait'" class="grid-container d-block d-sm-none">
+    <div class="row">
+        <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
+          <p class="title" style="margin: auto; position: absolute; margin-left:35px; margin-top: 35px; font-size:200%">WEDDINGS</p>
+          <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 100%"/>
+        </div>
+  
+        <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
+          <p class="title" style="margin: auto; position: absolute; margin-left: 35px; margin-top: 35px; font-size:200%">FUNERALS</p>
+          <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 100%"/>
+        </div>
+    </div>
+  </div>
+
+<div class="animation"  style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy1.png"/>
+
 </div>

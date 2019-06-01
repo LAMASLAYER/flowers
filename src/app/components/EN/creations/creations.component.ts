@@ -18,6 +18,7 @@ export class CreationsComponent implements OnInit {
   public funeralsUrl: string;
   public weddingOrientation: string;
   public funeralsOrientation: string;
+  public orientationRequest: string;
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -39,22 +40,29 @@ export class CreationsComponent implements OnInit {
     this.http = http;
   }
   ngOnInit() {
-    this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding/orientation/portrait').subscribe(
+    this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding').subscribe(
       (data: Array<Assets>) => {
+        console.log(data)
         const randomData = data[Math.floor(Math.random() * data.length)];
         console.log(randomData);
         this.weddingUrl =  randomData.url;
         this.weddingOrientation = randomData.orientation;
-        console.log(this.weddingOrientation);
+        if(this.weddingOrientation == 'portrait') {
+          this.orientationRequest = 'portrait'
+        }else {
+          this.orientationRequest = 'paysage'
+        }
+        console.log(this.orientationRequest);
+        this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/funerals/orientation/' + this.orientationRequest).subscribe(
+          (data2: Array<Assets>) => {
+            const randomData2 = data2[Math.floor(Math.random() * data2.length)];
+            this.funeralsUrl = randomData2.url;
+            this.funeralsOrientation = randomData2.orientation;
+          }
+        );
       }
     );
-    this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/funerals/orientation/portrait').subscribe(
-      (data: Array<Assets>) => {
-        const randomData2 = data[Math.floor(Math.random() * data.length)];
-        this.funeralsUrl = randomData2.url;
-        this.funeralsOrientation = randomData2.orientation;
-      }
-    );
+
   }
 
   goTo(url: string) {
