@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-<div class="grid-container d-none d-md-block" style="margin: 0" (click)="goTo('dashboard')">
+<div class="grid-container d-none d-md-block" style="margin: 0">
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
@@ -8,7 +8,7 @@
           <div *ngIf="card.type =='BANNER'" style="cursor: default;">
             <a style="float:right; color:white; cursor: pointer" class="title" >English</a>
             <br/>
-            <a style="float:right; color:white; cursor: pointer" class="title" (click)="french()">French</a>
+            <a style="float:right; color:white; cursor: pointer" class="title"French</a>
             <br/>
             <p class="mat-h1 title" style="font-family: 'Century Gothic'; font-size: 400%">SARAH LESALE</p>
             <p class="mat-h3 title" style="font-family: 'Century Gothic'; font-size: 200%">Floral Designer</p>
@@ -34,7 +34,7 @@
       <mdb-carousel-item *ngFor="let a of albums">
         <p class="title d-none d-md-block" style=" font-size:300%">{{a.album | uppercase}}</p>
         <p class="title d-sm-block d-md-none" style=" font-size:100%">{{a.album | uppercase}}</p>
-        <img (click)="openAlbum(a.album)" class="d-block w-100" [src]='a.url' [alt]='a.albums'>
+        <img (click)="openAlbum(a.album)" class="d-block w-100" [src]='a.url' >
       </mdb-carousel-item>
     </mdb-carousel>
     <!--/.Carousel Wrapper-->

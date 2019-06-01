@@ -42,7 +42,7 @@ export class CreationsComponent implements OnInit {
   ngOnInit() {
     this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding').subscribe(
       (data: Array<Assets>) => {
-        console.log(data)
+        console.log(data);
         const randomData = data[Math.floor(Math.random() * data.length)];
         console.log(randomData);
         this.weddingUrl =  randomData.url;

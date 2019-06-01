@@ -59,7 +59,7 @@ export class FuneralsComponent implements OnInit {
     console.log('hello');
     return this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding/album/' + album).subscribe(
       (assets: Array<Assets>) => {
-        console.log(assets)
+        console.log(assets);
         this.currentAlbum = assets;
         this.albumOpened = true;
       }
