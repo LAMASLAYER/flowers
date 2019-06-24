@@ -5,6 +5,7 @@ import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Album} from '../../../models/album'
 import {Assets} from '../../../models/assets'
+import {AngularFirestore} from "@angular/fire/firestore";
 
 @Component({
   selector: 'app-wedding',
@@ -33,17 +34,21 @@ export class WeddingComponent implements OnInit {
   public albums = new Array<Assets>();
   public currentAlbum = new Array<Assets>();
   public albumOpened: boolean;
-
-  constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient) {
+  public wedding;
+  public albms;
+  constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient, public afs: AngularFirestore) {
     this.router = router;
     this.http = http;
+    this.albms = this.afs.collection('albums', ref => ref.where('category', '==', 'wedding')).valueChanges();
   }
 
   ngOnInit() {
-    this.http.get('https://pathfinderappfinder.herokuapp.com/album/category/wedding').subscribe(
+    this.getAlbum().subscribe(
       (albums: Array<Album>) => {
         for(let i = 0; i < albums.length; i++) {
-          this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding/album/' + albums[i].album).subscribe(
+          let album = albums[i].album;
+          this.setWedding(this.afs.collection('assets', ref => ref.where('category', '==', 'wedding').where('album', '==', album)).valueChanges());
+          this.getWedding().subscribe(
             (assets: Array<Assets>) => {
               this.albums.push(assets[Math.floor(Math.random() * assets.length)]);
             }
@@ -53,10 +58,22 @@ export class WeddingComponent implements OnInit {
     )
   }
 
+  getAlbum() {
+    return this.albms
+  }
+
+  setWedding(wedding) {
+    this.wedding = wedding
+  }
+
+  getWedding() {
+    return this.wedding
+  }
 
  public openAlbum(album: string) {
   console.log('hello');
-  return this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding/album/' + album).subscribe(
+   this.setWedding(this.afs.collection('assets', ref => ref.where('category', '==', 'wedding').where('album', '==', album)).valueChanges());
+   this.getWedding().subscribe(
     (assets: Array<Assets>) => {
       console.log(assets);
       this.currentAlbum = assets;
@@ -64,4 +81,5 @@ export class WeddingComponent implements OnInit {
     }
   )
  }
+
 }

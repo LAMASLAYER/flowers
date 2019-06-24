@@ -12,8 +12,9 @@
               <option>funerals</option>
             </select>
             <label for="album">Choisir un album</label>
-            <select id="album" class="form-control" (change)="setAlbum($event.target.value)">
-              <option *ngFor="let a of albums">{{a.album}}</option>
+            <select id="album" class="form-control" (click)="setAlbum($event.target.value)">
+              <option></option>
+              <option *ngFor="let a of albums | async">{{a.album}}</option>
             </select>
             <button [disabled]="getCategory()==null || getCategory()==''" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Ajouter un album</button>
 
@@ -73,3 +74,4 @@
 
   </div>
 </div>
+<button></button>

@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 
+
 <div class="grid-container d-none d-md-block" style="margin: 0" (click)="goTo('dashboard')">
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
@@ -17,6 +18,8 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+
+  <div *ngFor="let w of wedding | async">{{w.weddingUrl}}</div>
 
   <div class="animation" style="text-align: center" >
     <img style="width: 80%; max-width: 800px" src="../../../../assets/fancy2.png"/>

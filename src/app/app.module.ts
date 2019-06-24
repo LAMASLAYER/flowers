@@ -34,7 +34,9 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import { UploaderComponent } from './components/uploader/uploader.component';
 import { WeddingComponent } from './components/EN/wedding/wedding.component';
 import { FuneralsComponent } from './components/EN/funerals/funerals.component';
-
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 const routes: Routes = [
   { path: '', redirectTo: 'en/dashboard', pathMatch: 'full' },
@@ -90,7 +92,9 @@ const routes: Routes = [
     FileUploadModule,
     FormsModule,
     ReactiveFormsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase, 'fleurslesale'),
+    AngularFirestoreModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy}

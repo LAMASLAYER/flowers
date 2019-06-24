@@ -5,6 +5,8 @@ import { Cloudinary } from '@cloudinary/angular-5.x';
 import {Assets} from '../../models/assets';
 import {AssetHandler} from '../../models/asset-handler';
 import {Album} from '../../models/album';
+import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from "@angular/fire/firestore";
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'app-uploader',
@@ -24,20 +26,29 @@ export class UploaderComponent implements OnInit {
   public height: number;
   public assetHandler: Array<AssetHandler>;
   public uploaded: boolean;
-  public albums: Array<Album>;
+  public albums;
+  public albumsCol: AngularFirestoreCollection<Album>;
   public newAlbum = new Album();
   public album: string;
+  public itemsCollection: AngularFirestoreCollection<Assets>;
+  public items;
 
   constructor(
     private cloudinary: Cloudinary,
     private zone: NgZone,
-    private http: HttpClient
+    private http: HttpClient,
+    public afs: AngularFirestore
   ) {
+    this.setCategory('');
     this.responses = [];
     this.assetHandler = new Array<AssetHandler>();
+    this.items = this.afs.collection('assets').valueChanges();
+    this.albums = this.afs.collection('albums', ref => ref.where('category', '==', '')).valueChanges();
   }
 
+
   ngOnInit(): void {
+
     this.uploaded = false;
     // Create the file uploader, wire it to upload to your account
     const uploaderOptions: FileUploaderOptions = {
@@ -190,14 +201,15 @@ export class UploaderComponent implements OnInit {
       asset.id = null;
       asset.album = this.getAlbum();
       console.log(asset);
-      this.http.post('https://pathfinderappfinder.herokuapp.com/assets/post', asset).subscribe(
-        res => {
-          if (i === this.assetHandler.length) {
-            alert('Upload terminé.');
-            this.responses = [];
-          }
+      this.afs.collection('assets').add(
+        {
+          'id':asset.id,
+          'url':asset.url,
+          'category':asset.category,
+          'album':asset.album,
+          'orientation': asset.orientation
         }
-      );
+      )
     }
     this.assetHandler = [];
     this.uploaded = false;
@@ -225,29 +237,18 @@ export class UploaderComponent implements OnInit {
     if (this.newAlbum.album !== '' && this.newAlbum.album !== undefined) {
       this.newAlbum.albumId = null;
       this.newAlbum.category = this.getCategory();
-      return this.http.post('https://pathfinderappfinder.herokuapp.com/album/post', this.newAlbum).subscribe(
-        res => {
-          alert('L\'album ' + this.newAlbum.album + ' a été correctement créé.');
-          window.location.reload();
-        }
-      );
+      this.afs.collection('albums').add({
+        'id':this.newAlbum.albumId,
+        'category':this.newAlbum.category,
+        'album':this.newAlbum.album
+      })
     } else {
       alert('Impossible de créer un album sans nom.');
     }
   }
 
   public getAlbumByCategory() {
-    if (this.getCategory() !== '' && this.getCategory() !== null) {
-      return this.http.get('https://pathfinderappfinder.herokuapp.com/album/category/' + this.getCategory()).subscribe(
-        (res: Array<Album>) => {
-          this.albums = res;
-          if (this.albums.length > 0) {
-            this.setAlbum(this.albums[0].album);
-          } else {
-            this.setAlbum('');
-          }
-        }
-      );
-    }
+    const value = this.getCategory();
+    this.albums = this.afs.collection('albums', ref => ref.where('category', '==', value)).valueChanges();
   }
 }
