@@ -18,70 +18,39 @@
     </mat-grid-tile>
   </mat-grid-list>
 
-</div>
-<div class="animation" style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy2.png"/>
-</div>
-
-<!--ALL PAYSAGE-->
-<div *ngIf="weddingOrientation=='paysage'" class="grid-container d-none d-sm-block">
-  <div class="row">
-      <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
-        <p class="title" style="margin: auto; position: absolute; margin-left:170px; margin-top: 170px; font-size:300%">WEDDINGS</p>
-        <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 540px"/>
-      </div>
-
-      <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
-        <p class="title" style="margin: auto; position: absolute; margin-left:170px; margin-top: 170px; font-size:300%">FUNERALS</p>
-        <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 540px"/>
-      </div>
+  <div class="animation" style="text-align: center" >
+    <img style="width: 80%; max-width: 800px" src="../../../../assets/fancy2.png"/>
   </div>
-</div>
 
-<!--PHONE PAYSAGE-->
-<div *ngIf="weddingOrientation=='paysage'" class="grid-container d-block d-sm-none">
-    <div class="row">
-        <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
-          <p class="title" style="margin: auto; position: absolute; margin-left:48px; margin-top: 35px; font-size:200%">WEDDINGS</p>
-          <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 100%"/>
-        </div>
-  
-        <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
-          <p class="title" style="margin: auto; position: absolute; margin-left:56px; margin-top: 35px; font-size:200%">FUNERALS</p>
-          <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 100%"/>
-        </div>
+<div style="text-align: center" class="row">
+  <div class="col-2"></div>
+  <div  (click)="goTo('en/creations/wedding')"  class="col-4">
+    <label for="wedding" style="position: relative;font-size: 4em;z-index: 2;top: 20rem;" class="title">WEDDINGS</label>
+    <img id="wedding" width="80%" [src]="weddingUrl"  alt="wedding" *ngIf="weddingUrl!=null" />
+  </div>
+    <div (click)="goTo('en/creations/funerals')"  class="col-4">
+      <label for="funerals" style="position: relative;font-size: 4em;z-index: 2;top: 20rem;" class="title">FUNERALS</label>
+      <img id="funerals" width="80%" [src]="funeralsUrl"  alt="funerals" *ngIf="funeralsUrl!=null" />
     </div>
-  </div>
-
-<!--ALL PORTRAIT-->
-<div *ngIf="weddingOrientation=='portrait'" class="grid-container d-none d-sm-block">
-  <div class="row">
-      <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
-        <p class="title" style="margin: auto; position: absolute; margin-left:170px; margin-top: 170px; font-size:300%">WEDDINGS</p>
-        <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 540px"/>
-      </div>
-
-      <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
-        <p class="title" style="margin: auto; position: absolute; margin-left:170px; margin-top: 170px; font-size:300%">FUNERALS</p>
-        <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 540px"/>
-      </div>
-  </div>
+  <div class="col-2"></div>
 </div>
 
-<!--PHONE PORTRAIT-->
-<div *ngIf="weddingOrientation=='portrait'" class="grid-container d-block d-sm-none">
-    <div class="row">
-        <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
-          <p class="title" style="margin: auto; position: absolute; margin-left:35px; margin-top: 35px; font-size:200%">WEDDINGS</p>
-          <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 100%"/>
-        </div>
-  
-        <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
-          <p class="title" style="margin: auto; position: absolute; margin-left: 35px; margin-top: 35px; font-size:200%">FUNERALS</p>
-          <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 100%"/>
-        </div>
-    </div>
+</div>
+
+
+
+
+
+<div style="text-align: center" class="d-block d-md-none row">
+  <div   (click)="goTo('en/creations/wedding')"  class="col-12">
+      <p style="position: relative;font-size: 200%;z-index: 2;top: 130px;" class="title">WEDDINGS</p>
+      <img width="80%" [src]="weddingUrl"  alt="wedding" *ngIf="weddingUrl!=null" />
   </div>
+    <div (click)="goTo('en/creations/funerals')"  class="col-12">
+      <p  style="position: relative;font-size: 200%;z-index: 2;top: 130px;" class="title">FUNERALS</p>
+      <img  width="80%" [src]="funeralsUrl"  alt="wedding" *ngIf="funeralsUrl!=null" />
+    </div>
+</div>
 
-<div class="animation"  style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy1.png"/>
-
+<div class="animation" style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy1.png"/>
 </div>

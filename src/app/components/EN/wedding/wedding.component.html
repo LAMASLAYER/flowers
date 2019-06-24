@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 
+
 <div class="grid-container d-none d-md-block" style="margin: 0">
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
@@ -22,36 +23,37 @@
 <div class="animation" style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy2.png"/>
 </div>
 
-<div class="container">
-  <div *ngFor="let a of albums">
-    <img class="column" style="max-width:20%; float:left" >
+
+<div *ngIf="!albumOpened" class="d-none d-sm-none d-md-block">
+  <div  class="row" style="text-align: center">
+    <div *ngFor="let a of albums; let i = index " class="col-4">
+      <p style="font-size:200%; color: black" class="title">{{a.album}}</p>
+
+      <img  (click)="openAlbum(a.album)" width="50%" [alt]="'img' + i" [src]="a.url"/></div>
   </div>
 </div>
-<br>
 
-<div *ngIf="!albumOpened" class="col-4" style="margin-left: auto; margin-right:auto">
-    <mdb-carousel  [isControls]="true" [animation]="'slide'">
-      <mdb-carousel-item *ngFor="let a of albums">
-        <p class="title d-none d-md-block" style=" font-size:300%">{{a.album | uppercase}}</p>
-        <p class="title d-sm-block d-md-none" style=" font-size:100%">{{a.album | uppercase}}</p>
-        <img (click)="openAlbum(a.album)" class="d-block w-100" [src]='a.url' >
-      </mdb-carousel-item>
-    </mdb-carousel>
-    <!--/.Carousel Wrapper-->
+<div *ngIf="!albumOpened" class="d-block d-sm-block d-md-none">
+  <div  class="row" style="text-align: center">
+    <div style="margin-bottom: 5%" *ngFor="let a of albums; let i = index " class="col-12">
+      <p style="font-size:200%; color: black" class="title">{{a.album}}</p>
+      <img (click)="openAlbum(a.album)" width="50%" [alt]="'img' + i" [src]="a.url"/></div>
   </div>
-  
+</div>
 
-  <p  *ngIf="albumOpened" (click)="albumOpened = false" class="title d-none d-md-block" style=" font-size:300%">GO BACK</p>
-  <p  *ngIf="albumOpened" (click)="albumOpened = false" class="title d-sm-block d-md-none" style=" font-size:100%">GO BACK</p>
-  <div *ngIf="albumOpened" class="col-4" style="margin-left: auto; margin-right:auto">
+  <div *ngIf="albumOpened" class="col-10" style="margin-left: auto; margin-right: auto;">
     <mdb-carousel  [isControls]="true" [animation]="'slide'">
       <mdb-carousel-item *ngFor="let a of currentAlbum">
-        <img class="d-block w-100" [src]='a.url' >
+        <img style="max-width: 700px;margin-left: auto;margin-right: auto;" [alt]="a.album" class="d-block w-100" [src]='a.url' >
       </mdb-carousel-item>
     </mdb-carousel>
     <!--/.Carousel Wrapper-->
+
   </div>
-  
+
+<div class="row" style="text-align: center"> <button  *ngIf="albumOpened" (click)="albumOpened = false" class="btn btn-dark" style="margin-top: 2%;  margin-left: auto;
+    margin-right: auto;">RETURN TO ALBUMS</button>
+</div>
 
 <div class="animation"  style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy1.png"/>
 

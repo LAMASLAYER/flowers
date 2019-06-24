@@ -26,12 +26,12 @@
 <div *ngIf="weddingOrientation=='paysage'" class="grid-container d-none d-sm-block">
   <div class="row">
       <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
-        <p class="title" style="margin: auto; position: absolute; margin-left:170px; margin-top: 170px; font-size:300%">WEDDINGS</p>
+        <p class="title" style=" position: relative; margin-left:2rem; margin-top: 2rem; margin-right: 2rem; font-size:300%">WEDDINGS</p>
         <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 540px"/>
       </div>
 
       <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
-        <p class="title" style="margin: auto; position: absolute; margin-left:170px; margin-top: 170px; font-size:300%">FUNERALS</p>
+        <p class="title" style="position: relative; margin-left:2rem; margin-top: 2rem; margin-right: 2rem; font-size:300%">FUNERALS</p>
         <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 540px"/>
       </div>
   </div>
@@ -40,13 +40,13 @@
 <!--PHONE PAYSAGE-->
 <div *ngIf="weddingOrientation=='paysage'" class="grid-container d-block d-sm-none">
     <div class="row">
-        <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
-          <p class="title" style="margin: auto; position: absolute; margin-left:48px; margin-top: 35px; font-size:200%">WEDDINGS</p>
+        <div (click)="goTo('en/creations/wedding')" class="column" style="position:absolute; margin: auto; margin-bottom: 5%">
+          <p class="title" style="position: relative; margin-left:2rem; margin-top: 2rem; margin-right: 2rem; font-size:200%">WEDDINGS</p>
           <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 100%"/>
         </div>
-  
+
         <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
-          <p class="title" style="margin: auto; position: absolute; margin-left:56px; margin-top: 35px; font-size:200%">FUNERALS</p>
+          <p class="title" style="position: relative; margin-left:2rem; margin-top: 2rem; margin-right: 2rem; font-size:200%">FUNERALS</p>
           <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 100%"/>
         </div>
     </div>
@@ -71,12 +71,12 @@
 <div *ngIf="weddingOrientation=='portrait'" class="grid-container d-block d-sm-none">
     <div class="row">
         <div (click)="goTo('en/creations/wedding')" class="column" style="margin: auto; margin-bottom: 5%">
-          <p class="title" style="margin: auto; position: absolute; margin-left:35px; margin-top: 35px; font-size:200%">WEDDINGS</p>
+          <p class="title" style="margin: auto; position: relative; margin-left:170px; margin-top: 170px;font-size:200%">WEDDINGS</p>
           <img alt="wedding" *ngIf="weddingUrl!=null" [src]="weddingUrl" style="cursor: pointer; max-width: 100%"/>
         </div>
-  
+
         <div (click)="goTo('en/creations/funerals')" class="column"  style="margin: auto; margin-bottom: 5%">
-          <p class="title" style="margin: auto; position: absolute; margin-left: 35px; margin-top: 35px; font-size:200%">FUNERALS</p>
+          <p class="title" style="margin: auto; position: relative; margin-left:170px; margin-top: 170px;font-size:200%">FUNERALS</p>
           <img alt="funerals" *ngIf="funeralsUrl!=null" [src]="funeralsUrl" style="cursor: pointer; max-width: 100%"/>
         </div>
     </div>
