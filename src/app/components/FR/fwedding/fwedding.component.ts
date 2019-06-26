@@ -5,14 +5,14 @@ import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Album} from '../../../models/album';
 import {Assets} from '../../../models/assets';
-import {AngularFirestore} from'@angular/fire/firestore';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
-  selector: 'app-funerals',
-  templateUrl: './funerals.component.html',
-  styleUrls: ['./funerals.component.css']
+  selector: 'app-fwedding',
+  templateUrl: './fwedding.component.html',
+  styleUrls: ['./fwedding.component.css']
 })
-export class FuneralsComponent implements OnInit {
+export class FweddingComponent implements OnInit {
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -34,12 +34,12 @@ export class FuneralsComponent implements OnInit {
   public albums = new Array<Assets>();
   public currentAlbum = new Array<Assets>();
   public albumOpened: boolean;
-  public funerals;
+  public wedding;
   public albms;
   constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient, public afs: AngularFirestore) {
     this.router = router;
     this.http = http;
-    this.albms = this.afs.collection('albums', ref => ref.where('category', '==', 'funerals')).valueChanges();
+    this.albms = this.afs.collection('albums', ref => ref.where('category', '==', 'wedding')).valueChanges();
   }
 
   ngOnInit() {
@@ -48,7 +48,7 @@ export class FuneralsComponent implements OnInit {
         for (let i = 0; i < albums.length; i++) {
           const album = albums[i].album;
           this.setWedding(this.afs.collection
-          ('assets', ref => ref.where('category', '==', 'funerals')
+          ('assets', ref => ref.where('category', '==', 'wedding')
             .where('album', '==', album)).valueChanges());
           this.getWedding().subscribe(
             (assets: Array<Assets>) => {
@@ -64,17 +64,17 @@ export class FuneralsComponent implements OnInit {
     return this.albms;
   }
 
-  setWedding(funerals) {
-    this.funerals = funerals;
+  setWedding(wedding) {
+    this.wedding = wedding;
   }
 
   getWedding() {
-    return this.funerals;
+    return this.wedding;
   }
 
   public openAlbum(album: string) {
     console.log('hello');
-    this.setWedding(this.afs.collection('assets', ref => ref.where('category', '==', 'funerals').where('album', '==', album)).valueChanges());
+    this.setWedding(this.afs.collection('assets', ref => ref.where('category', '==', 'wedding').where('album', '==', album)).valueChanges());
     this.getWedding().subscribe(
       (assets: Array<Assets>) => {
         console.log(assets);
@@ -85,7 +85,6 @@ export class FuneralsComponent implements OnInit {
   }
 
   public goBack(): void {
-    this.router.navigate(['en/creations']);
+    this.router.navigate(['fr/creations']);
   }
-
 }

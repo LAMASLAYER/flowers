@@ -34,9 +34,11 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import { UploaderComponent } from './components/uploader/uploader.component';
 import { WeddingComponent } from './components/EN/wedding/wedding.component';
 import { FuneralsComponent } from './components/EN/funerals/funerals.component';
-import {environment} from "../environments/environment";
-import {AngularFireModule} from "@angular/fire";
-import { AngularFirestoreModule } from "@angular/fire/firestore";
+import {environment} from '../environments/environment';
+import {AngularFireModule} from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FweddingComponent } from './components/fr/fwedding/fwedding.component';
+import { FfuneralsComponent } from './components/FR/ffunerals/ffunerals.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'en/dashboard', pathMatch: 'full' },
@@ -52,7 +54,9 @@ const routes: Routes = [
   { path: 'en/contact', component: ContactEnglish},
   { path: 'upload', component: UploaderComponent },
   { path: 'en/creations/wedding', component: WeddingComponent},
-  { path: 'en/creations/funerals', component: FuneralsComponent }
+  { path: 'en/creations/funerals', component: FuneralsComponent },
+  { path: 'fr/creations/wedding', component: FweddingComponent},
+  { path: 'fr/creations/funerals', component: FfuneralsComponent },
 ];
 
 @NgModule({
@@ -71,7 +75,9 @@ const routes: Routes = [
     NavbarComponent,
     UploaderComponent,
     WeddingComponent,
-    FuneralsComponent
+    FuneralsComponent,
+    FweddingComponent,
+    FfuneralsComponent,
   ],
   imports: [
     BrowserModule,

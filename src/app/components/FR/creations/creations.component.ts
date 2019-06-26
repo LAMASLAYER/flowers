@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Contact} from '../../../models/contact';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
-import {HttpClient} from "@angular/common/http";
-import {Assets} from "../../../models/assets";
+import {HttpClient} from '@angular/common/http';
+import {Assets} from '../../../models/assets';
+import {AngularFirestore} from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-creations',
@@ -20,6 +21,8 @@ export class CreationsComponent implements OnInit {
   public weddingOrientation: string;
   public funeralsOrientation: string;
   public orientationRequest: string;
+  public wedding;
+  public funerals;
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -36,26 +39,28 @@ export class CreationsComponent implements OnInit {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient) {
+  constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient, public afs: AngularFirestore) {
     this.router = router;
     this.http = http;
+    this.wedding = this.afs.collection('assets', ref => ref.where('category', '==', 'wedding')).valueChanges();
   }
   ngOnInit() {
-    this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/wedding').subscribe(
+    this.getWedding().subscribe(
       (data: Array<Assets>) => {
-        console.log(data);
         const randomData = data[Math.floor(Math.random() * data.length)];
-        console.log(randomData);
         this.weddingUrl =  randomData.url;
         this.weddingOrientation = randomData.orientation;
-        if(this.weddingOrientation == 'portrait') {
-          this.orientationRequest = 'portrait'
-        }else {
-          this.orientationRequest = 'paysage'
+        if (this.weddingOrientation === 'portrait') {
+          this.orientationRequest = 'portrait';
+        } else {
+          this.orientationRequest = 'paysage';
         }
-        console.log(this.orientationRequest);
-        this.http.get('https://pathfinderappfinder.herokuapp.com/assets/category/funerals/orientation/' + this.orientationRequest).subscribe(
+        this.setFunerals(this.afs.collection('assets', ref => ref
+          .where('category', '==', 'funerals')
+          .where('orientation', '==', this.orientationRequest)).valueChanges());
+        this.getFunerals().subscribe(
           (data2: Array<Assets>) => {
+            console.log(data2)
             const randomData2 = data2[Math.floor(Math.random() * data2.length)];
             this.funeralsUrl = randomData2.url;
             this.funeralsOrientation = randomData2.orientation;
@@ -66,14 +71,25 @@ export class CreationsComponent implements OnInit {
 
   }
 
+  getWedding() {
+    return this.wedding;
+  }
+
+  getFunerals() {
+    return this.funerals;
+  }
+
+  setFunerals(funerals) {
+    this.funerals = funerals;
+  }
+
   goTo(url: string) {
     this.router.navigate([url]);
   }
 
   public french() {
-    localStorage.setItem('fllang', 'fr');
-    this.router.navigate(['fr/creations']);
+    localStorage.setItem('enlang', 'en');
+    this.router.navigate(['en/creations']);
   }
-
 
 }

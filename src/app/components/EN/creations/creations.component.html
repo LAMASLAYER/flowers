@@ -28,12 +28,12 @@
 <div style="text-align: center" class="row">
   <div class="col-2"></div>
   <div  (click)="goTo('en/creations/wedding')"  class="col-4">
-    <label for="wedding" style="position: relative;font-size: 4em;z-index: 2;top: 20rem;" class="title">WEDDINGS</label>
-    <img id="wedding" width="80%" [src]="weddingUrl"  alt="wedding" *ngIf="weddingUrl!=null" />
+    <p style="position: relative;font-size: 200%;z-index: 2;" class="title">WEDDINGS</p>
+    <img id="wedding" width="80%" style="min-width: 250px" [src]="weddingUrl"  alt="wedding" *ngIf="weddingUrl!=null" />
   </div>
     <div (click)="goTo('en/creations/funerals')"  class="col-4">
-      <label for="funerals" style="position: relative;font-size: 4em;z-index: 2;top: 20rem;" class="title">FUNERALS</label>
-      <img id="funerals" width="80%" [src]="funeralsUrl"  alt="funerals" *ngIf="funeralsUrl!=null" />
+      <p  style="position: relative;font-size: 200%;z-index: 2;" class="title">FUNERALS</p>
+      <img id="funerals" width="80%" style="min-width: 250px" [src]="funeralsUrl"  alt="funerals" *ngIf="funeralsUrl!=null" />
     </div>
   <div class="col-2"></div>
 </div>
@@ -46,12 +46,12 @@
 
 <div style="text-align: center" class="d-block d-md-none row">
   <div   (click)="goTo('en/creations/wedding')"  class="col-12">
-      <p style="position: relative;font-size: 200%;z-index: 2;top: 130px;" class="title">WEDDINGS</p>
-      <img width="80%" [src]="weddingUrl"  alt="wedding" *ngIf="weddingUrl!=null" />
+      <p style="position: relative;font-size: 200%;z-index: 2;" class="title">WEDDINGS</p>
+      <img width="80%" [src]="weddingUrl" style="min-width: 250px"  alt="wedding" *ngIf="weddingUrl!=null" />
   </div>
     <div (click)="goTo('en/creations/funerals')"  class="col-12">
-      <p  style="position: relative;font-size: 200%;z-index: 2;top: 130px;" class="title">FUNERALS</p>
-      <img  width="80%" [src]="funeralsUrl"  alt="wedding" *ngIf="funeralsUrl!=null" />
+      <p  style="position: relative;font-size: 200%;z-index: 2;" class="title">FUNERALS</p>
+      <img  width="80%" [src]="funeralsUrl" style="min-width: 250px"  alt="wedding" *ngIf="funeralsUrl!=null" />
     </div>
 </div>
 

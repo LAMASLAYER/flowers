@@ -8,11 +8,11 @@ import {Assets} from '../../../models/assets';
 import {AngularFirestore} from'@angular/fire/firestore';
 
 @Component({
-  selector: 'app-funerals',
-  templateUrl: './funerals.component.html',
-  styleUrls: ['./funerals.component.css']
+  selector: 'app-ffunerals',
+  templateUrl: './ffunerals.component.html',
+  styleUrls: ['./ffunerals.component.css']
 })
-export class FuneralsComponent implements OnInit {
+export class FfuneralsComponent implements OnInit {
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(

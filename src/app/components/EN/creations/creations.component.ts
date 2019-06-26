@@ -4,7 +4,7 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Assets} from '../../../models/assets';
-import {AngularFirestore} from "@angular/fire/firestore";
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-creations',
