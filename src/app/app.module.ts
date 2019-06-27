@@ -37,7 +37,7 @@ import { FuneralsComponent } from './components/EN/funerals/funerals.component';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { FweddingComponent } from './components/fr/fwedding/fwedding.component';
+import { FweddingComponent } from './components/FR/fwedding/fwedding.component';
 import { FfuneralsComponent } from './components/FR/ffunerals/ffunerals.component';
 import { NavFRComponent } from './components/FR/nav-fr/nav-fr.component';
 
