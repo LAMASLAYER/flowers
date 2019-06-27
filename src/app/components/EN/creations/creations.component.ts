@@ -81,6 +81,7 @@ export class CreationsComponent implements OnInit {
   }
 
   goTo(url: string) {
+    console.log('hi')
     this.router.navigate([url]);
   }
 

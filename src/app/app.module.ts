@@ -39,6 +39,7 @@ import {AngularFireModule} from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FweddingComponent } from './components/fr/fwedding/fwedding.component';
 import { FfuneralsComponent } from './components/FR/ffunerals/ffunerals.component';
+import { NavFRComponent } from './components/FR/nav-fr/nav-fr.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'en/dashboard', pathMatch: 'full' },
@@ -78,6 +79,7 @@ const routes: Routes = [
     FuneralsComponent,
     FweddingComponent,
     FfuneralsComponent,
+    NavFRComponent,
   ],
   imports: [
     BrowserModule,

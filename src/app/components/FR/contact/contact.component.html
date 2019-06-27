@@ -1,4 +1,6 @@
-<div class="grid-container" style="margin: 0" (click)="goTo('dashboard')">
+<app-nav-fr></app-nav-fr>
+
+<div class="d-none d-sm-none d-md-block grid-container" style="margin: 0" (click)="goTo('dashboard')">
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
@@ -17,7 +19,11 @@
   </mat-grid-list>
 </div>
 
-<div class="animation" style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy2.png"/>
+<div style="margin-top:5%" class="row">
+  <div class="col-3"></div>
+  <div class="col-6">    <hr style="border: 1px solid rgba(169,169,169,0.8)">
+  </div>
+  <div class="col-3"></div>
 </div>
 
 <div  class="grid-container animation" style="text-align: center; font-family: 'Times New Roman'">
@@ -28,5 +34,9 @@
   N'hésitez pas à me suivre sur Facebook !
   <a style="width:70px" href="https://www.facebook.com/Cr%C3%A9atrice-Florale-Sarah-Lesale-664399917100504/" class="fa fa-facebook"></a>
 </div>
-<div class="animation"  style="text-align: center" ><img style="width: 80%; max-width: 800px" src="../../../../assets/fancy1.png"/>
+<div style="margin-top:5%" class="row">
+  <div class="col-3"></div>
+  <div class="col-6">    <hr style="border: 1px solid rgba(169,169,169,0.8)">
+  </div>
+  <div class="col-3"></div>
 </div>

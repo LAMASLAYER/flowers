@@ -92,4 +92,5 @@ export class CreationsComponent implements OnInit {
     this.router.navigate(['en/creations']);
   }
 
+  public nothing(){}
 }

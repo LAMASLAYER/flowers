@@ -32,7 +32,7 @@ export class ServicesComponent implements OnInit {
   ngOnInit() {
   }
   goTo(url: string) {
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['fr/dashboard']);
   }
 
 

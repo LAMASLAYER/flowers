@@ -37,7 +37,7 @@ export class AboutComponent implements OnInit {
 
   public french() {
     localStorage.setItem('fllang', 'en');
-    this.router.navigate(['fr/contact']);
+    this.router.navigate(['fr/about']);
   }
 
 

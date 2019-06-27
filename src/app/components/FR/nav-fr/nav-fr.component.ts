@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-nav-fr',
+  templateUrl: './nav-fr.component.html',
+  styleUrls: ['./nav-fr.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavFRComponent implements OnInit {
 
   private _dashboard: boolean;
   private _services: boolean;
@@ -43,16 +43,16 @@ export class NavbarComponent implements OnInit {
   }
 
   public goDashboardFr() {
-    localStorage.setItem('frlang', 'fr');
-    this.router.navigate(['fr/dashboard']);
+    localStorage.setItem('enlang', 'en');
+    this.router.navigate(['en/dashboard']);
   }
 
   public goServices() {
-    this.router.navigate(['en/services']);
+    this.router.navigate(['fr/services']);
   }
 
   public goCreations() {
-    this.router.navigate(['en/creations']);
+    this.router.navigate(['fr/creations']);
   }
 
   constructor(router: Router) {
@@ -60,13 +60,12 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (window.location.pathname === ('en/dashboard' || '/')) {
+    if (window.location.pathname === ('fr/dashboard' || '/')) {
       this.dashboard = true;
-    } else if (window.location.pathname === 'en/services') {
+    } else if (window.location.pathname === 'fr/services') {
       this.services = true;
-    } else if (window.location.pathname === 'en/creations') {
+    } else if (window.location.pathname === 'fr/creations') {
       this.creations = true;
     }
   }
-
 }
