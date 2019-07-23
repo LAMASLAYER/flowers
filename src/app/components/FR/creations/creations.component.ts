@@ -42,7 +42,7 @@ export class CreationsComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient, public afs: AngularFirestore) {
     this.router = router;
     this.http = http;
-    this.wedding = this.afs.collection('assets', ref => ref.where('category', '==', 'wedding')).valueChanges();
+    this.wedding = this.afs.collection('assets', ref => ref.where('category', '==', 'wedding').where('orientation', '==', 'paysage')).valueChanges();
   }
   ngOnInit() {
     this.getWedding().subscribe(
@@ -50,17 +50,14 @@ export class CreationsComponent implements OnInit {
         const randomData = data[Math.floor(Math.random() * data.length)];
         this.weddingUrl =  randomData.url;
         this.weddingOrientation = randomData.orientation;
-        if (this.weddingOrientation === 'portrait') {
-          this.orientationRequest = 'portrait';
-        } else {
-          this.orientationRequest = 'paysage';
+        if(this.weddingOrientation == 'portrait') {
+          this.orientationRequest = 'portrait'
+        }else {
+          this.orientationRequest = 'paysage'
         }
-        this.setFunerals(this.afs.collection('assets', ref => ref
-          .where('category', '==', 'funerals')
-          .where('orientation', '==', this.orientationRequest)).valueChanges());
+        this.setFunerals(this.afs.collection('assets', ref => ref.where('category', '==', 'funerals').where('orientation', '==', 'paysage')).valueChanges())
         this.getFunerals().subscribe(
           (data2: Array<Assets>) => {
-            console.log(data2)
             const randomData2 = data2[Math.floor(Math.random() * data2.length)];
             this.funeralsUrl = randomData2.url;
             this.funeralsOrientation = randomData2.orientation;
@@ -88,9 +85,8 @@ export class CreationsComponent implements OnInit {
   }
 
   public french() {
-    localStorage.setItem('enlang', 'en');
-    this.router.navigate(['en/creations']);
+    localStorage.setItem('fllang', 'fr');
+    this.router.navigate(['fr/creations']);
   }
-
   public nothing(){}
 }

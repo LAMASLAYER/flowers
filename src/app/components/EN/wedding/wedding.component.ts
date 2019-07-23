@@ -49,7 +49,8 @@ export class WeddingComponent implements OnInit {
           const album = albums[i].album;
           this.setWedding(this.afs.collection
           ('assets', ref => ref.where('category', '==', 'wedding')
-            .where('album', '==', album)).valueChanges());
+            .where('album', '==', album)
+            .where('orientation', '==', 'paysage')).valueChanges());
           this.getWedding().subscribe(
             (assets: Array<Assets>) => {
               this.albums.push(assets[Math.floor(Math.random() * assets.length)]);
@@ -74,7 +75,9 @@ export class WeddingComponent implements OnInit {
 
  public openAlbum(album: string) {
   console.log('hello');
-   this.setWedding(this.afs.collection('assets', ref => ref.where('category', '==', 'wedding').where('album', '==', album)).valueChanges());
+   this.setWedding(this.afs.collection('assets', ref => ref
+     .where('category', '==', 'wedding')
+     .where('album', '==', album)).valueChanges());
    this.getWedding().subscribe(
     (assets: Array<Assets>) => {
       console.log(assets);
