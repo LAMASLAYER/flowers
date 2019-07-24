@@ -2,6 +2,12 @@
   margin: 20px;
 }
 
+.title {
+  color: #FFFFFF;
+  text-shadow: 2px 2px 0px #333333, 5px 4px 0px rgba(0,0,0,0.15);
+}
+
+
 .dashboard-card {
   position: absolute;
   top: 15px;
@@ -83,7 +89,7 @@
 }
 
 .title {
-  color: #FFFFFF;
+  color: white;
   text-shadow: 2px 2px 0px #333333, 5px 4px 0px rgba(0,0,0,0.15);
 }
 .cont {
@@ -115,4 +121,5 @@
 
 img {
   image-orientation: from-image;
+  border-radius: 12px;
 }

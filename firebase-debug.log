@@ -1,19 +1,19 @@
-[debug] [2019-06-27T07:12:16.420Z] ----------------------------------------------------------------------
-[debug] [2019-06-27T07:12:16.424Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ku714\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase login
-[debug] [2019-06-27T07:12:16.424Z] CLI Version:   4.2.1
-[debug] [2019-06-27T07:12:16.424Z] Platform:      win32
-[debug] [2019-06-27T07:12:16.424Z] Node Version:  v8.9.4
-[debug] [2019-06-27T07:12:16.428Z] Time:          Thu Jun 27 2019 09:12:16 GMT+0200 (W. Europe Daylight Time)
-[debug] [2019-06-27T07:12:16.429Z] ----------------------------------------------------------------------
+[debug] [2019-07-24T13:26:18.169Z] ----------------------------------------------------------------------
+[debug] [2019-07-24T13:26:18.175Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ku714\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase login
+[debug] [2019-07-24T13:26:18.175Z] CLI Version:   4.2.1
+[debug] [2019-07-24T13:26:18.175Z] Platform:      win32
+[debug] [2019-07-24T13:26:18.175Z] Node Version:  v8.9.4
+[debug] [2019-07-24T13:26:18.175Z] Time:          Wed Jul 24 2019 15:26:18 GMT+0200 (W. Europe Daylight Time)
+[debug] [2019-07-24T13:26:18.175Z] ----------------------------------------------------------------------
 [debug] 
 [info] 
 [info] Visit this URL on any device to log in:
-[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=600925936&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=17471694&redirect_uri=http%3A%2F%2Flocalhost%3A9005
 [info] 
 [info] Waiting for authentication...
-[debug] [2019-06-27T07:12:29.802Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
+[debug] [2019-07-24T13:26:30.356Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
 
-[debug] [2019-06-27T07:12:30.814Z] Token Fetch Error: Error
+[debug] [2019-07-24T13:26:31.436Z] Token Fetch Error: Error
     at new FirebaseError (C:\Users\ku714\AppData\Roaming\npm\node_modules\firebase-tools\lib\error.js:11:16)
     at Request._callback (C:\Users\ku714\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:34:11)
     at self.callback (C:\Users\ku714\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)

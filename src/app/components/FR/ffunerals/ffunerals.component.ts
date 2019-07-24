@@ -49,7 +49,8 @@ export class FfuneralsComponent implements OnInit {
           const album = albums[i].album;
           this.setWedding(this.afs.collection
           ('assets', ref => ref.where('category', '==', 'funerals')
-            .where('album', '==', album)).valueChanges());
+            .where('album', '==', album)
+            .where('orientation', '==', 'paysage')).valueChanges());
           this.getWedding().subscribe(
             (assets: Array<Assets>) => {
               this.albums.push(assets[Math.floor(Math.random() * assets.length)]);
@@ -85,7 +86,7 @@ export class FfuneralsComponent implements OnInit {
   }
 
   public goBack(): void {
-    this.router.navigate(['en/creations']);
+    this.router.navigate(['fr/creations']);
   }
 
 }
