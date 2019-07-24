@@ -17,11 +17,13 @@ export class CreationsComponent implements OnInit {
   private http: HttpClient;
   public weddingUrl: string;
   public funeralsUrl: string;
+  public eventsUrl: string;
   public weddingOrientation: string;
   public funeralsOrientation: string;
   public orientationRequest: string;
   public wedding;
   public funerals;
+  public events;
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -37,6 +39,7 @@ export class CreationsComponent implements OnInit {
       ];
     })
   );
+  public eventsOrientation: string;
 
   constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient, public afs: AngularFirestore) {
     this.router = router;
@@ -62,6 +65,15 @@ export class CreationsComponent implements OnInit {
             this.funeralsOrientation = randomData2.orientation;
           }
         );
+
+        this.setEvents(this.afs.collection('assets', ref => ref.where('category', '==', 'events').where('orientation', '==', 'paysage')).valueChanges())
+        this.getEvents().subscribe(
+          (data3: Array<Assets>) => {
+            const randomData3 = data3[Math.floor(Math.random() * data3.length)];
+            this.eventsUrl = randomData3.url;
+            this.eventsOrientation = randomData3.orientation;
+          }
+        );
       }
     );
 
@@ -77,6 +89,15 @@ export class CreationsComponent implements OnInit {
 
   setFunerals(funerals) {
     this.funerals = funerals;
+  }
+
+
+  getEvents() {
+    return this.events;
+  }
+
+  setEvents(events) {
+    this.events = events;
   }
 
   goTo(url: string) {

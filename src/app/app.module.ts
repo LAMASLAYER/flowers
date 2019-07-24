@@ -40,6 +40,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FweddingComponent } from './components/FR/fwedding/fwedding.component';
 import { FfuneralsComponent } from './components/FR/ffunerals/ffunerals.component';
 import { NavFRComponent } from './components/FR/nav-fr/nav-fr.component';
+import {EventsComponent} from './components/EN/events/events.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'en/dashboard', pathMatch: 'full' },
@@ -56,6 +57,7 @@ const routes: Routes = [
   { path: 'upload', component: UploaderComponent },
   { path: 'en/creations/wedding', component: WeddingComponent},
   { path: 'en/creations/funerals', component: FuneralsComponent },
+  { path: 'en/creations/events', component: EventsComponent},
   { path: 'fr/creations/wedding', component: FweddingComponent},
   { path: 'fr/creations/funerals', component: FfuneralsComponent },
 ];
@@ -80,6 +82,7 @@ const routes: Routes = [
     FweddingComponent,
     FfuneralsComponent,
     NavFRComponent,
+    EventsComponent,
   ],
   imports: [
     BrowserModule,
