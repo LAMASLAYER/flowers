@@ -40,7 +40,7 @@
 <div *ngIf="!albumOpened" class="d-block d-sm-block d-md-none">
   <div  class="row" style="text-align: center">
     <div style="margin-bottom: 5%" *ngFor="let a of albums; let i = index " class="col-12">
-      <p style="font-size:200%; color: black" class="title">{{a.album}}</p>
+      <p style="font-size:200%;" class="title">{{a.album}}</p>
       <img (click)="openAlbum(a.album)" width="50%" [alt]="'img' + i" [src]="a.url"/></div>
   </div>
 </div>

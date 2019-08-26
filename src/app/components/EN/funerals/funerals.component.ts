@@ -34,7 +34,7 @@ export class FuneralsComponent implements OnInit {
   public albums = new Array<Assets>();
   public currentAlbum = new Array<Assets>();
   public albumOpened: boolean;
-  public wedding;
+  public funerals;
   public albms;
   constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient, public afs: AngularFirestore) {
     this.router = router;
@@ -51,7 +51,6 @@ export class FuneralsComponent implements OnInit {
           ('assets', ref => ref.where('category', '==', 'funerals')
             .where('album', '==', album)
             .where('orientation', '==', 'paysage')).valueChanges());
-          console.log(this.getWedding().length);
           this.getWedding().subscribe(
             (assets: Array<Assets>) => {
               this.albums.push(assets[Math.floor(Math.random() * assets.length)]);
@@ -66,19 +65,17 @@ export class FuneralsComponent implements OnInit {
     return this.albms;
   }
 
-  setWedding(wedding) {
-    this.wedding = wedding;
+  setWedding(funerals) {
+    this.funerals = funerals;
   }
 
   getWedding() {
-    return this.wedding;
+    return this.funerals;
   }
 
   public openAlbum(album: string) {
     console.log('hello');
-    this.setWedding(this.afs.collection('assets', ref => ref
-      .where('category', '==', 'funerals')
-      .where('album', '==', album)).valueChanges());
+    this.setWedding(this.afs.collection('assets', ref => ref.where('category', '==', 'funerals').where('album', '==', album)).valueChanges());
     this.getWedding().subscribe(
       (assets: Array<Assets>) => {
         console.log(assets);
