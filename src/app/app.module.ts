@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
-import * as  Cloudinary from 'cloudinary-core';
+import { Cloudinary } from 'cloudinary-core';
 import { FileUploadModule} from 'ng2-file-upload';
 import { MaterialDashboardComponent } from './components/FR/material-dashboard/material-dashboard.component';
 import { AboutComponent } from './components/FR/about/about.component';
@@ -41,6 +41,11 @@ import { FweddingComponent } from './components/FR/fwedding/fwedding.component';
 import { FfuneralsComponent } from './components/FR/ffunerals/ffunerals.component';
 import { NavFRComponent } from './components/FR/nav-fr/nav-fr.component';
 import {EventsComponent} from './components/EN/events/events.component';
+import { FeventsComponent } from './components/FR/fevents/fevents.component';
+
+export const cloudinaryLib = {
+  Cloudinary: Cloudinary
+};
 
 const routes: Routes = [
   { path: '', redirectTo: 'en/dashboard', pathMatch: 'full' },
@@ -60,6 +65,7 @@ const routes: Routes = [
   { path: 'en/creations/events', component: EventsComponent},
   { path: 'fr/creations/wedding', component: FweddingComponent},
   { path: 'fr/creations/funerals', component: FfuneralsComponent },
+  { path: 'fr/creations/events', component: FeventsComponent},
 ];
 
 @NgModule({
@@ -83,6 +89,7 @@ const routes: Routes = [
     FfuneralsComponent,
     NavFRComponent,
     EventsComponent,
+    FeventsComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,7 +106,7 @@ const routes: Routes = [
     MatListModule,
     HttpClientModule,
     RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'}),
-    CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'fleurslesale', upload_preset: 'canh3gtz'}),
+    CloudinaryModule.forRoot(cloudinaryLib, { cloud_name: 'fleurslesale', upload_preset: 'canh3gtz'}),
     FileUploadModule,
     FormsModule,
     ReactiveFormsModule,

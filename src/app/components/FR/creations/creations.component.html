@@ -7,9 +7,9 @@
       <mat-card [style.backgroundSize]="'cover'" [ngStyle]="{'background': 'url(' + card.url + ') no-repeat'}" style="cursor: pointer" class="dashboard-card">
         <mat-card-content class="dashboard-card-content">
           <div *ngIf="card.type =='BANNER'" style="cursor: default;">
-            <a style="float:right; color:white; cursor: pointer" class="title" (click)="nothing()">English</a>
+            <a style="float:right; color:white; cursor: pointer" class="title" (click)="nothing()">Anglais</a>
             <br/>
-            <a style="float:right; color:white; cursor: pointer" class="title" (click)="french()">French</a>
+            <a style="float:right; color:white; cursor: pointer" class="title" (click)="french()">Français</a>
             <br/>
             <p class="mat-h1 title" style="font-family: 'Century Gothic'; font-size: 400%">SARAH LESALE</p>
             <p class="mat-h3 title" style="font-family: 'Century Gothic'; font-size: 200%">Créatrice Florale</p>
@@ -33,13 +33,22 @@
     <div class="col-2"></div>
     <div  (click)="goTo('fr/creations/wedding')"  class="col-4">
       <p style="position: relative;font-size: 200%;z-index: 2;" class="title">MARIAGES</p>
-      <img id="wedding" width="80%" style="min-width: 250px" [src]="weddingUrl"  alt="wedding" *ngIf="weddingUrl!=null" />
+      <img width="80%" src="http://res.cloudinary.com/fleurslesale/image/upload/v1563890598/angular_sample/prnalzpbtwpc5nwov3rq.jpg" style="min-width: 250px"  alt="wedding" *ngIf="weddingUrl!=null" />
     </div>
     <div (click)="goTo('fr/creations/funerals')"  class="col-4">
       <p  style="position: relative;font-size: 200%;z-index: 2;" class="title">FUNERAILLES</p>
-      <img id="funerals" width="80%" style="min-width: 250px" [src]="funeralsUrl"  alt="funerals" *ngIf="funeralsUrl!=null" />
+      <img  width="80%" src="http://res.cloudinary.com/fleurslesale/image/upload/v1570278601/angular_sample/jbs83pseazjqm75muqws.jpg" style="min-width: 250px"  alt="wedding" *ngIf="funeralsUrl!=null" />
     </div>
     <div class="col-2"></div>
+  </div>
+
+  <div style="text-align: center" class="row">
+    <div class="col-4"></div>
+    <div  (click)="goTo('fr/creations/events')"  class="col-4">
+      <p style="position: relative;font-size: 200%;z-index: 2;" class="title">EVENEMENTS</p>
+      <img width="80%" src="http://res.cloudinary.com/fleurslesale/image/upload/v1570273951/angular_sample/ohadcmgcht7wfkiyzkzm.jpg" style="min-width: 250px"  alt="wedding" *ngIf="weddingUrl!=null" />
+    </div>
+    <div class="col-4"></div>
   </div>
 
 </div>
@@ -51,11 +60,15 @@
 <div style="text-align: center" class="d-block d-md-none row">
   <div   (click)="goTo('fr/creations/wedding')"  class="col-12">
     <p style="position: relative;font-size: 200%;z-index: 2;" class="title">MARIAGES</p>
-    <img width="80%" [src]="weddingUrl" style="min-width: 250px"  alt="wedding" *ngIf="weddingUrl!=null" />
+    <img width="80%" src="http://res.cloudinary.com/fleurslesale/image/upload/v1563890598/angular_sample/prnalzpbtwpc5nwov3rq.jpg" style="min-width: 250px"  alt="wedding" *ngIf="weddingUrl!=null" />
   </div>
   <div (click)="goTo('fr/creations/funerals')"  class="col-12">
     <p  style="position: relative;font-size: 200%;z-index: 2;" class="title">FUNERAILLES</p>
-    <img  width="80%" [src]="funeralsUrl" style="min-width: 250px"  alt="wedding" *ngIf="funeralsUrl!=null" />
+    <img  width="80%" src="http://res.cloudinary.com/fleurslesale/image/upload/v1570278601/angular_sample/jbs83pseazjqm75muqws.jpg" style="min-width: 250px"  alt="wedding" *ngIf="funeralsUrl!=null" />
+  </div>
+  <div (click)="goTo('fr/creations/events')"  class="col-12">
+    <p  style="position: relative;font-size: 200%;z-index: 2;" class="title">EVENEMENTS</p>
+    <img  width="80%" src="http://res.cloudinary.com/fleurslesale/image/upload/v1570273951/angular_sample/ohadcmgcht7wfkiyzkzm.jpg" style="min-width: 250px"  alt="wedding" *ngIf="eventsUrl!=null" />
   </div>
 </div>
 

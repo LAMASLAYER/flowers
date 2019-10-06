@@ -19,10 +19,13 @@ export class CreationsComponent implements OnInit {
   public weddingUrl: string;
   public funeralsUrl: string;
   public weddingOrientation: string;
+  private eventOrientations: string;
   public funeralsOrientation: string;
   public orientationRequest: string;
   public wedding;
   public funerals;
+  public events: any;
+  public eventsUrl: string;
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -63,9 +66,22 @@ export class CreationsComponent implements OnInit {
             this.funeralsOrientation = randomData2.orientation;
           }
         );
+
+        this.setEvents(this.afs.collection('assets', ref => ref.where('category', '==', 'events').where('orientation', '==', 'paysage')).valueChanges())
+        this.getEvents().subscribe(
+          (data2: Array<Assets>) => {
+            const randomData2 = data2[Math.floor(Math.random() * data2.length)];
+            this.eventsUrl = randomData2.url;
+            this.eventOrientations = randomData2.orientation;
+          }
+        );
       }
     );
 
+  }
+
+  getEvents(){
+    return this.events;
   }
 
   getWedding() {
@@ -85,8 +101,14 @@ export class CreationsComponent implements OnInit {
   }
 
   public french() {
-    localStorage.setItem('fllang', 'fr');
-    this.router.navigate(['fr/creations']);
+
   }
-  public nothing(){}
+  public nothing(){
+    localStorage.setItem('enlang', 'en');
+    this.router.navigate(['en/creations']);
+  }
+
+  private setEvents(events) {
+    this.events = events;
+  }
 }

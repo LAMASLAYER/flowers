@@ -109,4 +109,7 @@ export class CreationsComponent implements OnInit {
     this.router.navigate(['fr/creations']);
   }
 
+  nothing() {
+
+  }
 }

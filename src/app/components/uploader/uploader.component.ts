@@ -37,7 +37,7 @@ export class UploaderComponent implements OnInit {
     private cloudinary: Cloudinary,
     private zone: NgZone,
     private http: HttpClient,
-    public afs: AngularFirestore
+    public afs: AngularFirestore,
   ) {
     this.setCategory('');
     this.responses = [];
@@ -250,5 +250,15 @@ export class UploaderComponent implements OnInit {
   public getAlbumByCategory() {
     const value = this.getCategory();
     this.albums = this.afs.collection('albums', ref => ref.where('category', '==', value)).valueChanges();
+  }
+
+  public delete(){
+   this.afs.collection('assets', ref => ref.where('url', '==', 'http://res.cloudinary.com/fleurslesale/image/upload/v1570277040/angular_sample/dnkev93gkkcfss9rhoox.jpg'))
+     .doc().delete().then(function() {
+     console.log("Document successfully deleted!");
+   }).catch(function(error) {
+     console.error("Error removing document: ", error);
+   });
+
   }
 }
