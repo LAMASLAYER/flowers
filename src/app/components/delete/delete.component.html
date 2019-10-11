@@ -1,0 +1,15 @@
+<div *ngIf="array" class="container">
+  <div class="row">
+    <div class="col-4"><button (click)="index = index - 1">PREVIOUS</button></div>
+    <div class="col-4"> <img [src]="array[index].url" alt="img" style="width:inherit">
+    </div>
+    <div class="col-4"><button (click)="index = index + 1">NEXT</button></div>
+  </div>
+
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4"><button (click)="delete(array[index].url)">DELETE</button></div>
+    <div class="col-4"></div>
+
+  </div>
+</div>

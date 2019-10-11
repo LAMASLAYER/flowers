@@ -39,7 +39,7 @@ export class EventsComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient, public afs: AngularFirestore) {
     this.router = router;
     this.http = http;
-    this.albms = this.afs.collection('albums', ref => ref.where('category', '==', 'evebts')).valueChanges();
+    this.albms = this.afs.collection('albums', ref => ref.where('category', '==', 'events')).valueChanges();
   }
 
   ngOnInit() {

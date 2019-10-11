@@ -19,6 +19,8 @@
     </mat-grid-tile>
   </mat-grid-list>
 
+</div>
+
   <div style="margin-top:5%" class="row">
     <div class="col-3"></div>
     <div class="col-6">    <hr style="border: 1px solid rgba(169,169,169,0.8)">
@@ -38,7 +40,7 @@
   <div *ngIf="!albumOpened" class="d-block d-sm-block d-md-none">
     <div  class="row" style="text-align: center">
       <div style="margin-bottom: 5%" *ngFor="let a of albums; let i = index " class="col-12">
-        <p style="font-size:200%; color: black" class="title">{{a.album}}</p>
+        <p style="font-size:200%;" class="title">{{a.album}}</p>
         <img (click)="openAlbum(a.album)" width="50%" [alt]="'img' + i" [src]="a.url"/></div>
     </div>
   </div>

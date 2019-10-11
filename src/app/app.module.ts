@@ -42,6 +42,7 @@ import { FfuneralsComponent } from './components/FR/ffunerals/ffunerals.componen
 import { NavFRComponent } from './components/FR/nav-fr/nav-fr.component';
 import {EventsComponent} from './components/EN/events/events.component';
 import { FeventsComponent } from './components/FR/fevents/fevents.component';
+import { DeleteComponent } from './components/delete/delete.component';
 
 export const cloudinaryLib = {
   Cloudinary: Cloudinary
@@ -66,6 +67,7 @@ const routes: Routes = [
   { path: 'fr/creations/wedding', component: FweddingComponent},
   { path: 'fr/creations/funerals', component: FfuneralsComponent },
   { path: 'fr/creations/events', component: FeventsComponent},
+  { path: 'delete', component: DeleteComponent }
 ];
 
 @NgModule({
@@ -90,6 +92,7 @@ const routes: Routes = [
     NavFRComponent,
     EventsComponent,
     FeventsComponent,
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,
