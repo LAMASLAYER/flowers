@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {map} from 'rxjs/operators';
-import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {Assets} from '../../models/assets';
+import 'rxjs/add/operator/map'
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-delete',
@@ -14,30 +12,19 @@ import {Assets} from '../../models/assets';
 export class DeleteComponent implements OnInit {
 
 
-  router: Router;
-  private http: HttpClient;
-  public assets;
+  public assets: Observable<Assets[]>;
+  public assetsCollection: AngularFirestoreCollection<Assets>;
   private _index: number;
   public array: Array<Assets>;
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { type: 'BANNER', cols: 2, rows: 1, url: '../../../assets/IMG_0080.JPG', href: 'dashboard' },
-        ];
-      }
 
-      return [
-        { type: 'BANNER', cols: 2, rows: 1, url: '../../../assets/IMG_0080.JPG', href: 'dashboard' },
-      ];
-    })
-  );
-
-  constructor(private breakpointObserver: BreakpointObserver, router: Router, http: HttpClient, public afs: AngularFirestore) {
-    this.router = router;
-    this.http = http;
-    this.assets = this.afs.collection('assets').valueChanges();
+  constructor(public afs: AngularFirestore) {
+    this.assets = this.afs.collection('assets').snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as Assets;
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    });
   }
   ngOnInit() {
     this.getAssets().subscribe(
@@ -63,10 +50,9 @@ export class DeleteComponent implements OnInit {
   }
 
   delete(input: string) {
-    // this.afs.collection('assets').doc(//TODO).delete().then(function() {
-    //   console.log('Document successfully deleted!');
-    // }).catch(function(error) {
-    //   console.error('Error removing document: ', error);
-    // });
+    this.afs.collection('assets').doc(input).delete().catch(err => {
+      console.log(err);
+    })
   }
 }
+
